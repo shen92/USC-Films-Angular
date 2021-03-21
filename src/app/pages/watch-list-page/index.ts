@@ -1,0 +1,1 @@
+export { WatchListPageComponent } from './watch-list-page.component'

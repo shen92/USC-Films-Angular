@@ -1,0 +1,1 @@
+export { DetailsPageComponent } from './details-page.component'
