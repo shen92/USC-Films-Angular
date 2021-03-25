@@ -1,23 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavBarComponent } from './components';
+import { NavBarComponent, CurrentlyPlayingMoviesCarouselComponent } from './components';
+import { CurrentlyPlayingMoviesService } from './services';
 
 @NgModule({
   declarations: [
+    routingComponents,
     AppComponent,
     NavBarComponent,
-    routingComponents
+    CurrentlyPlayingMoviesCarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CurrentlyPlayingMoviesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,1 @@
+export { CurrentlyPlayingMoviesService } from './currently-playing-movies.service'
