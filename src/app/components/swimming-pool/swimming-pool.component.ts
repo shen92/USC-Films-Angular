@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-poster-carousel',
+  selector: 'app-swimming-pool',
   templateUrl: './swimming-pool.component.html',
   styleUrls: ['./swimming-pool.component.css']
 })

@@ -4,11 +4,11 @@ import {  takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-movie-poster-carousel',
-  templateUrl: './movie-poster-carousel.component.html',
-  styleUrls: ['./movie-poster-carousel.component.css']
+  selector: 'app-poster-carousel',
+  templateUrl: './poster-carousel.component.html',
+  styleUrls: ['./poster-carousel.component.css']
 })
-export class MoviePosterCarouselComponent implements OnInit, OnDestroy {
+export class PosterCarouselComponent implements OnInit, OnDestroy {
   
   public images = [];
   public titles = [];

@@ -1,0 +1,1 @@
+export { PosterCarouselComponent } from './poster-carousel.component'
