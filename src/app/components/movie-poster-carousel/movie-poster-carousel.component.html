@@ -1,0 +1,43 @@
+<div class="carouselContainer">
+  <ngb-carousel 
+    *ngIf="images.length != 0" 
+    id="app-poster-carousel" 
+  >
+
+    <ng-template ngbSlide>
+      <div class="imageContainer">
+        <img [src]="images[0]" [alt]="titles[0]">
+      </div>
+      <div class="carousel-caption captionContainer" >{{titles[0]}}</div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="imageContainer">
+        <img [src]="images[1]" [alt]="titles[1]">
+      </div>
+      <div class="carousel-caption captionContainer" >{{titles[1]}}</div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="imageContainer">
+        <img [src]="images[2]" [alt]="titles[2]">
+      </div>
+      <div class="carousel-caption captionContainer">{{titles[2]}}</div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="imageContainer">
+        <img [src]="images[3]" [alt]="titles[3]">
+      </div>
+      <div class="carousel-caption captionContainer">{{titles[3]}}</div>
+    </ng-template>
+
+    <ng-template ngbSlide>
+      <div class="imageContainer">
+        <img [src]="images[4]" [alt]="titles[4]">
+      </div>
+      <div class="carousel-caption captionContainer">{{titles[4]}}</div>
+    </ng-template>
+
+  </ngb-carousel>
+</div>

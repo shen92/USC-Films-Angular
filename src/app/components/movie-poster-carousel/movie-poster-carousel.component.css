@@ -1,0 +1,33 @@
+#app-poster-carousel, #app-poster-carousel:active {
+  outline: none;
+  border: none;
+}
+
+.carouselContainer {
+  width: 80%;
+  height: 50vh;
+  margin: 4vh auto;
+}
+
+img {
+  width: 90%;
+  height: 50vh;
+  margin: auto;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
+.captionContainer {
+  display: flex;
+  align-items: flex-start;
+  font-size: 20px;
+  left: 10%;
+}

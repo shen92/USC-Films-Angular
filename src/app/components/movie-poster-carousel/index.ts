@@ -1,0 +1,1 @@
+export { MoviePosterCarouselComponent } from './movie-poster-carousel.component'
