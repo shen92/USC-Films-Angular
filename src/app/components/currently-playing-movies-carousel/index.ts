@@ -1,1 +1,0 @@
-export { CurrentlyPlayingMoviesCarouselComponent } from './currently-playing-movies-carousel.component'

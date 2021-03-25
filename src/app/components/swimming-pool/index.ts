@@ -1,0 +1,1 @@
+export { SwimmingPoolComponent } from './swimming-pool.component'

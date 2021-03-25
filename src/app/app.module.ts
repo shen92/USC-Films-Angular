@@ -6,15 +6,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavBarComponent, CurrentlyPlayingMoviesCarouselComponent } from './components';
-import { CurrentlyPlayingMoviesService } from './services';
+import { NavBarComponent, SwimmingPoolComponent } from './components';
+import { HomePageService } from './services';
 
 @NgModule({
   declarations: [
     routingComponents,
     AppComponent,
     NavBarComponent,
-    CurrentlyPlayingMoviesCarouselComponent
+    SwimmingPoolComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +23,7 @@ import { CurrentlyPlayingMoviesService } from './services';
     HttpClientModule
   ],
   providers: [
-    CurrentlyPlayingMoviesService
+    HomePageService
   ],
   bootstrap: [AppComponent]
 })

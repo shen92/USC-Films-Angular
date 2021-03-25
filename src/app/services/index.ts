@@ -1,1 +1,1 @@
-export { CurrentlyPlayingMoviesService } from './currently-playing-movies.service'
+export { HomePageService } from './home-page.service'

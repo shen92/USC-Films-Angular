@@ -9,7 +9,7 @@ import { BASE_URL } from './config'
 @Injectable({
   providedIn: 'root'
 })
-export class CurrentlyPlayingMoviesService {
+export class HomePageService {
 
   constructor(private http: HttpClient) { }
 
