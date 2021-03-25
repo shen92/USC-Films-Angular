@@ -1,3 +1,7 @@
 .navbar-custom {
   background: #040D20;
 }
+
+.active {
+  color: white
+}
