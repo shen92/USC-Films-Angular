@@ -1,24 +1,59 @@
 .swimmingPool {
-  width: 83%;
+  width: 90%;
   margin: auto;
 }
 
 .swimmingPoolTitle {
-  color: white;
-  font-size: 27px;
+  font-size: 32px;
   font-weight: 400;
 }
 
 #swimming-pool-carousel, #swimming-pool-carousel:active {
+  width: 100%;
+  height: 100%;
+  margin: auto;
   outline: none;
   border: none;
 }
 
-.carouselContainer {
-  width: 90%;
-  margin: 4vh auto;
-}
+@media (min-width: 576px) {
+  .carouselContainer {
+    width: 90%;
+    margin: 4vh auto;
+  }
 
-.imagesContainer {
-  display: flex;
+  .imagesContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1.2vw;
+    justify-content: center;
+  }
+
+  .imageContainer {
+    width: 12vw;
+    height: 100%;
+    flex: 1;
+  }
+
+  .placeholderContainer {
+    width: 12vw;
+  }
+
+  img {
+    width: 12vw;
+    height: auto;
+  }
+  
+  :host ::ng-deep .carousel-control-prev {
+    left: -10vw;
+  }
+  
+  :host ::ng-deep .carousel-control-next {
+    right: -10vw;
+  }
+
+  :host ::ng-deep .carousel-indicators {
+    bottom: -7vh;
+  }
 }

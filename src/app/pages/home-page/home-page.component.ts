@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomePageService } from 'src/app/services';
 import {  takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./home-page.component.css']
 })
 
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, OnDestroy {
 
   public currentlyPlayingMovies = [];
   public popularMovies = [];
@@ -63,4 +63,8 @@ export class HomePageComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
+  }
 }

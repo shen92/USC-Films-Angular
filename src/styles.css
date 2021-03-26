@@ -4,6 +4,6 @@ html, body, app-root{
   height: 100%;
   margin: 0;
   background-color: #070D2F;
-  color: '#ffffff';
+  color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

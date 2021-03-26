@@ -1,55 +1,16 @@
-<div class="swimmingPool">
+<div class="swimmingPool" *ngIf="this.data !=null && this.data.length !== 0" >
   <div class="swimmingPoolTitle">{{title}}</div>
   <div class="carouselContainer">
-    <ngb-carousel 
-      *ngIf="true" 
-      id="swimming-pool-carousel" 
-    >
-
-      <ng-template ngbSlide>
+    <ngb-carousel *ngIf="true" id="swimming-pool-carousel" [interval]="0">
+      <ng-template ngbSlide *ngFor="let group of groups">
         <div class="imagesContainer">
-          <div style="flex: 1;">1</div>
-          <div style="flex: 1;">2</div>
-          <div style="flex: 1;">3</div>
-          <div style="flex: 1;">4</div>
-          <div style="flex: 1;">5</div>
-          <div style="flex: 1;">6</div>
-        </div>
+          <div *ngFor="let element of group" >
+            <div [class]="element.hasOwnProperty('placeholder') ? 'placeholderContainer' : 'imagesContainer'">
+              <img *ngIf="!element.hasOwnProperty('placeholder')" [src]="element.poster_path" [alt]="element.title">
+            </div>
+          </div>
+      </div>
       </ng-template>
-
-      <ng-template ngbSlide>
-        <div class="imagesContainer">
-          <div style="flex: 1;">1</div>
-          <div style="flex: 1;">2</div>
-          <div style="flex: 1;">3</div>
-          <div style="flex: 1;">4</div>
-          <div style="flex: 1;">5</div>
-          <div style="flex: 1;">6</div>
-        </div>
-      </ng-template>
-
-      <ng-template ngbSlide>
-        <div class="imagesContainer">
-          <div style="flex: 1;">1</div>
-          <div style="flex: 1;">2</div>
-          <div style="flex: 1;">3</div>
-          <div style="flex: 1;">4</div>
-          <div style="flex: 1;">5</div>
-          <div style="flex: 1;">6</div>
-        </div>
-      </ng-template>
-
-      <ng-template ngbSlide>
-        <div class="imagesContainer">
-          <div style="flex: 1;">1</div>
-          <div style="flex: 1;">2</div>
-          <div style="flex: 1;">3</div>
-          <div style="flex: 1;">4</div>
-          <div style="flex: 1;">5</div>
-          <div style="flex: 1;">6</div>
-        </div>
-      </ng-template>
-
     </ngb-carousel>
   </div>
 </div>

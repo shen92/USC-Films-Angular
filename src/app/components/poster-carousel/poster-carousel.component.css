@@ -7,7 +7,7 @@
 
 @media (min-width: 576px) {
   .carouselContainer {
-    width: 90%;
+    width: 70%;
     height: 50vh;
     margin: 4vh auto;
     display: flex;
@@ -28,7 +28,7 @@
     height: 50vh;
     margin: auto;
     object-fit: cover;
-    object-position: center;
+    object-position: top center;
     transition: transform 0.5s;
     z-index: -100;
   }
