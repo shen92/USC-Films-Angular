@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-swimming-pool',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./swimming-pool.component.css']
 })
 export class SwimmingPoolComponent implements OnInit {
-
+  @Input() title: string;
+  
   constructor() { }
 
   ngOnInit(): void {

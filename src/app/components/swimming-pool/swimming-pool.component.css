@@ -1,0 +1,24 @@
+.swimmingPool {
+  width: 83%;
+  margin: auto;
+}
+
+.swimmingPoolTitle {
+  color: white;
+  font-size: 27px;
+  font-weight: 400;
+}
+
+#swimming-pool-carousel, #swimming-pool-carousel:active {
+  outline: none;
+  border: none;
+}
+
+.carouselContainer {
+  width: 90%;
+  margin: 4vh auto;
+}
+
+.imagesContainer {
+  display: flex;
+}
