@@ -1,42 +1,42 @@
 <div class="carouselContainer">
   <ngb-carousel 
-    *ngIf="images.length != 0" 
+    *ngIf="currentlyPlayingMovies.length !== 0" 
     id="app-poster-carousel" 
   >
 
     <ng-template ngbSlide>
       <div class="imageContainer">
-        <img [src]="images[0]" [alt]="titles[0]">
+        <img [src]="currentlyPlayingMovies[0].poster_path" [alt]="currentlyPlayingMovies[0].title">
       </div>
-      <div class="carousel-caption captionContainer" >{{titles[0]}}</div>
+      <div class="carousel-caption captionContainer" >{{currentlyPlayingMovies[0].title}}</div>
     </ng-template>
 
     <ng-template ngbSlide>
       <div class="imageContainer">
-        <img [src]="images[1]" [alt]="titles[1]">
+        <img [src]="currentlyPlayingMovies[1].poster_path" [alt]="currentlyPlayingMovies[1].title">
       </div>
-      <div class="carousel-caption captionContainer" >{{titles[1]}}</div>
+      <div class="carousel-caption captionContainer" >{{currentlyPlayingMovies[1].title}}</div>
     </ng-template>
 
     <ng-template ngbSlide>
       <div class="imageContainer">
-        <img [src]="images[2]" [alt]="titles[2]">
+        <img [src]="currentlyPlayingMovies[2].poster_path" [alt]="currentlyPlayingMovies[2].title">
       </div>
-      <div class="carousel-caption captionContainer">{{titles[2]}}</div>
+      <div class="carousel-caption captionContainer">{{currentlyPlayingMovies[2].title}}</div>
     </ng-template>
 
     <ng-template ngbSlide>
       <div class="imageContainer">
-        <img [src]="images[3]" [alt]="titles[3]">
+        <img [src]="currentlyPlayingMovies[3].poster_path" [alt]="currentlyPlayingMovies[3].title">
       </div>
-      <div class="carousel-caption captionContainer">{{titles[3]}}</div>
+      <div class="carousel-caption captionContainer">{{currentlyPlayingMovies[3].title}}</div>
     </ng-template>
 
     <ng-template ngbSlide>
       <div class="imageContainer">
-        <img [src]="images[4]" [alt]="titles[4]">
+        <img [src]="currentlyPlayingMovies[4].poster_path" [alt]="currentlyPlayingMovies[4].title">
       </div>
-      <div class="carousel-caption captionContainer">{{titles[4]}}</div>
+      <div class="carousel-caption captionContainer">{{currentlyPlayingMovies[4].title}}</div>
     </ng-template>
 
   </ngb-carousel>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HomePageService } from 'src/app/services';
+import {  takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home-page',
@@ -8,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  public currentlyPlayingMovies = [];
+  public popularMovies = [];
+  public topRatedMovies = [];
+  public trendingMovies = [];
+  public popularTvShows = [];
+  public topRatedTvShows = [];
+  public trendingTvShows = [];
+
+  destroy$: Subject<boolean> = new Subject<boolean>();
+
+  constructor(private homePageService: HomePageService) { 
+  }
 
   ngOnInit(): void {
+    this.homePageService.fetchCurrentPlayingMovies().pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
+      this.currentlyPlayingMovies = response.data;
+    })
   }
 
 }
