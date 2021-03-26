@@ -1,0 +1,4 @@
+.watchListPage {
+  display: flex;
+  flex-direction: column;
+}

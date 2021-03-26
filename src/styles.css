@@ -7,3 +7,8 @@ html, body, app-root{
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+app-root {
+  display: flex;
+  flex-direction: column;
+}
