@@ -3,7 +3,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
-
 import { BASE_URL } from './config'
 
 @Injectable({
@@ -16,10 +15,8 @@ export class HomePageService {
   handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {
-      // Client-side errors
       errorMessage = `Error: ${error.error.message}`;
     } else {
-      // Server-side errors
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log(errorMessage);
@@ -28,5 +25,29 @@ export class HomePageService {
 
   fetchCurrentPlayingMovies() {
     return this.http.get(`${BASE_URL}/currently-playing-movies`).pipe(retry(3), catchError(this.handleError));
+  }
+ 
+  fetchPopularMovies() {
+    return this.http.get(`${BASE_URL}/popular-movies`).pipe(retry(3), catchError(this.handleError));
+  }
+
+  fetchTopRatedMovies() {
+    return this.http.get(`${BASE_URL}/top-rated-movies`).pipe(retry(3), catchError(this.handleError));
+  }
+
+  fetchTrendingMovies() {
+    return this.http.get(`${BASE_URL}/trending-movies`).pipe(retry(3), catchError(this.handleError));
+  }
+
+  fetchPopularTVShows() {
+    return this.http.get(`${BASE_URL}/popular-tv-shows`).pipe(retry(3), catchError(this.handleError));
+  }
+
+  fetchTopRatedTVShows() {
+    return this.http.get(`${BASE_URL}/top-rated-tv-shows`).pipe(retry(3), catchError(this.handleError));
+  }
+
+  fetchTrendingTVShows() {
+    return this.http.get(`${BASE_URL}/trending-tv-shows`).pipe(retry(3), catchError(this.handleError));
   }
 }
