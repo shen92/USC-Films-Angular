@@ -12,7 +12,7 @@ import {
   SwimmingPoolComponent, 
   FooterComponent 
 } from './components';
-import { HomePageService } from './services';
+import { DetailsPageService, HomePageService } from './services';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { HomePageService } from './services';
     HttpClientModule
   ],
   providers: [
-    HomePageService
+    HomePageService,
+    DetailsPageService
   ],
   bootstrap: [AppComponent]
 })
