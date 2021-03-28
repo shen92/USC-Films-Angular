@@ -22,4 +22,28 @@ export class DetailsPageService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
+
+  fetchRecommendedMedia(id, mediaType) {
+    return this.http.get(`${BASE_URL}/${mediaType}/${id}/recommended`).pipe(retry(3), catchError(this.handleError));
+  }
+  
+  fetchSimilarMedia(id, mediaType) {
+    return this.http.get(`${BASE_URL}/${mediaType}/${id}/similar`).pipe(retry(3), catchError(this.handleError));
+  }
+
+  fetchMediaVideo(id, mediaType) {
+    return this.http.get(`${BASE_URL}/${mediaType}/${id}/video`).pipe(retry(3), catchError(this.handleError));
+  }
+
+  fetchMediaDetails(id, mediaType) {
+    return this.http.get(`${BASE_URL}/${mediaType}/${id}/details`).pipe(retry(3), catchError(this.handleError));
+  }
+
+  fetchMediaReviews() {
+
+  }
+
+  fetchMediaCast() {
+
+  }
 }
