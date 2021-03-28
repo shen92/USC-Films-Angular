@@ -5,8 +5,8 @@
       <ng-template ngbSlide *ngFor="let group of groups">
         <div class="imagesContainer">
           <div *ngFor="let element of group" >
-            <div [class]="element.hasOwnProperty('placeholder') ? 'placeholderContainer' : 'imagesContainer'">
-              <img *ngIf="!element.hasOwnProperty('placeholder')" [src]="element.poster_path" [alt]="element.title">
+            <div [class]="element.hasOwnProperty('placeholder') ? 'placeholderContainer' : 'imagesContainer'" >
+              <img *ngIf="!element.hasOwnProperty('placeholder')" [src]="element.poster_path" [alt]="element.title" (click)="onClick(element.id, element.media_type)">
             </div>
           </div>
       </div>

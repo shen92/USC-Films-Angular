@@ -1,5 +1,5 @@
 import { Component, OnChanges, Input } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-swimming-pool',
   templateUrl: './swimming-pool.component.html',
@@ -12,6 +12,8 @@ export class SwimmingPoolComponent implements OnChanges {
   public groups = [];
   public elements = 6;
   public page = 0;
+
+  constructor(private router: Router) { }
 
   ngOnChanges(): void {
     this.getElements()
@@ -31,5 +33,9 @@ export class SwimmingPoolComponent implements OnChanges {
       }
     }
     this.groups = result;
+  }
+
+  onClick(id: number, mediaType: string): void {
+    this.router.navigate([`/watch/${mediaType}`, id]);
   }
 }

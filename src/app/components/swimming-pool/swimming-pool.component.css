@@ -43,6 +43,7 @@
   img {
     width: 12vw;
     height: auto;
+    cursor: pointer;
   }
   
   :host ::ng-deep .carousel-control-prev {
