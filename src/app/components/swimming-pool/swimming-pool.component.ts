@@ -36,6 +36,6 @@ export class SwimmingPoolComponent implements OnChanges {
   }
 
   onClick(id: number, mediaType: string): void {
-    this.router.navigate([`/watch/${mediaType}`, id]);
+    this.router.navigate( ['watch', mediaType, id]);
   }
 }

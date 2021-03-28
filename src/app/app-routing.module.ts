@@ -5,8 +5,7 @@ import { HomePageComponent, WatchListPageComponent, DetailsPageComponent } from 
 const routes: Routes = [
   { path: '', component: HomePageComponent }, //default route
   { path: 'mylist', component: WatchListPageComponent },
-  { path: 'watch/movie/:id', component: DetailsPageComponent },
-  { path: 'watch/tv/:id', component: DetailsPageComponent },
+  { path: 'watch/:mediaType/:id', component: DetailsPageComponent },
 ];
 
 @NgModule({
