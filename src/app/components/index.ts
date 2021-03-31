@@ -1,4 +1,6 @@
 export { NavBarComponent } from './nav-bar'
 export { PosterCarouselComponent } from './poster-carousel'
 export { SwimmingPoolComponent } from './swimming-pool'
+export { VideoPlayerComponent } from './video-player'
+export { CastModalComponent } from './cast-modal'
 export { FooterComponent } from './footer'

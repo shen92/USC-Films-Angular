@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { HomePageService } from 'src/app/services';
+import { HomePageService, WatchListService } from 'src/app/services';
 import {  takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -19,9 +19,11 @@ export class HomePageComponent implements OnInit, OnDestroy {
   public topRatedTvShows = [];
   public trendingTvShows = [];
 
+  public watchList = [];
+
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private homePageService: HomePageService) { 
+  constructor(private homePageService: HomePageService, private watchListService: WatchListService) { 
   }
 
   ngOnInit(): void {

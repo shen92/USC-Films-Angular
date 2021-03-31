@@ -1,3 +1,65 @@
-<div>{{title}}</div>
-<app-swimming-pool [title]="recommendationsTitle" [data]="recommendations"></app-swimming-pool>
-<app-swimming-pool [title]="similarsTitle" [data]="similars"></app-swimming-pool>
+<div class="detailsPage" (window:resize)="onResize($event)">
+  <div class="detailsPageSection">
+    <div class="row">
+      <div class="col-sm-8" style="padding: 0">
+        <app-video-player [key]="key" [videoWidth]="videoWidth" [videoHeight]="videoHeight"></app-video-player>
+      </div>
+      <div class="col-sm-4" style="padding: 0">
+        <div class="mediaTitle">{{title}}</div>
+        <div class="mediaTagLine">{{tagline}}</div>
+        <div class="mediaMeta">
+          <div style="margin-right: 8px;">{{getYear()}}</div>
+          <div style="margin-right: 8px;">{{getRate()}}</div>
+          <div>{{getDuration()}}</div>
+        </div>
+        <div>Genres: {{getGenres()}}</div>
+        <div>Spoken Languages: {{getSpokenLanguages()}}</div>
+        <div>
+          <button class="btn btn-primary" (click)="onButtonClick()">Add to Watchlist</button>
+        </div>
+        <div>
+          <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()">success</ngb-alert>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="subtitle">Description</div>
+      <div>{{description}}</div>
+    </div>
+    <div>
+      <div class="subtitle">Share</div>
+      <div style="display: flex;">
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-facebook-square"></i>
+      </div>
+    </div>
+    <div>
+      <div>Full Cast and Crew</div>
+      <div style="width: 100%; white-space: nowrap; overflow: auto">
+        <div *ngFor="let cast of casts" class="card" style="width: 15vw; display: inline-block; ">
+          <img class="card-img-top" [src]="cast.profile_path" alt="Card image cap" >
+          <div class="card-body" style="color: black;">
+            <div>{{cast.name}}</div>
+            <div>AS</div>
+            <div>{{cast.character}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>Reviews<span>{{reviewsCount}}</span></div>
+      <div class="card" *ngFor="let review of reviews" >
+        <div class="card-body" style="display: flex; color: black;">
+          <div>
+            <img [src]="review.avatar_path == null ? '' : review.avatar_path" style="width: 5vw;">
+          </div>
+          <div class="reviewContent">
+            {{review.content}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-swimming-pool [title]="recommendationsTitle" [data]="recommendations"></app-swimming-pool>
+  <app-swimming-pool [title]="similarsTitle" [data]="similars"></app-swimming-pool>
+</div>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -10,9 +11,11 @@ import {
   NavBarComponent, 
   PosterCarouselComponent, 
   SwimmingPoolComponent, 
+  VideoPlayerComponent,
+  CastModalComponent,
   FooterComponent 
 } from './components';
-import { DetailsPageService, HomePageService } from './services';
+import { DetailsPageService, HomePageService, WatchListService } from './services';
 
 @NgModule({
   declarations: [
@@ -22,16 +25,20 @@ import { DetailsPageService, HomePageService } from './services';
     PosterCarouselComponent,
     SwimmingPoolComponent,
     FooterComponent,
+    VideoPlayerComponent,
+    CastModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    YouTubePlayerModule
   ],
   providers: [
     HomePageService,
-    DetailsPageService
+    DetailsPageService,
+    WatchListService
   ],
   bootstrap: [AppComponent]
 })

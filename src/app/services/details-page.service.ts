@@ -39,11 +39,11 @@ export class DetailsPageService {
     return this.http.get(`${BASE_URL}/${mediaType}/${id}/details`).pipe(retry(3), catchError(this.handleError));
   }
 
-  fetchMediaReviews() {
-
+  fetchMediaReviews(id, mediaType) {
+    return this.http.get(`${BASE_URL}/${mediaType}/${id}/reviews`).pipe(retry(3), catchError(this.handleError));
   }
 
-  fetchMediaCast() {
-
+  fetchMediaCasts(id, mediaType) {
+    return this.http.get(`${BASE_URL}/${mediaType}/${id}/casts`).pipe(retry(3), catchError(this.handleError));
   }
 }
