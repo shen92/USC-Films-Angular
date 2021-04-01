@@ -52,7 +52,7 @@ export class DetailsPageComponent implements OnInit {
   ngOnInit(): void {
     this.screenWidth = screen.width;
     this.screenHeight = screen.height;
-    this.videoWidth = this.screenWidth < 576 ? this.screenWidth * 0.85 : this.screenWidth * 0.5;
+    this.videoWidth = this.screenWidth < 576 ? this.screenWidth * 0.85 : this.screenWidth * 0.48;
     this.videoHeight = this.screenWidth < 576 ? this.screenHeight * 0.3 : this.screenHeight * 0.5;
     this.route.paramMap.subscribe((params: ParamMap) => {
       const id = parseInt(params.get('id'), 10);
@@ -77,7 +77,7 @@ export class DetailsPageComponent implements OnInit {
         this.tagline = details.tagline;
         this.year = mediaType === 'movie' ? details.release_date : details.first_air_date;
         this.vote_average = details.vote_average;
-        this.duration = mediaType === 'movie' ? details.runtime : details.episode_run_time;
+        this.duration = mediaType === 'movie' ? details.runtime : details.episode_run_time[0];
         this.genres = details.genres;
         this.spokenLanguages = details.spoken_languages;
         this.description = details.overview;
@@ -104,7 +104,7 @@ export class DetailsPageComponent implements OnInit {
   onResize(e: any): void {
     this.screenWidth = e.target.innerWidth;
     this.screenHeight = e.target.innerHeight;
-    this.videoWidth = this.screenWidth < 576 ? this.screenWidth * 0.85 : this.screenWidth * 0.5;
+    this.videoWidth = this.screenWidth < 576 ? this.screenWidth * 0.85 : this.screenWidth * 0.48;
     this.videoHeight = this.screenWidth < 576 ? this.screenHeight * 0.3 : this.screenHeight * 0.5;
   }
 
@@ -149,10 +149,10 @@ export class DetailsPageComponent implements OnInit {
   }
 
   getGenres(): string {
-    return this.genres.map(genre => genre.name).join(',')
+    return this.genres.map(genre => genre.name).join(', ')
   }
   
   getSpokenLanguages(): string{
-    return this.spokenLanguages.map(language => language.name).join(',')
+    return this.spokenLanguages.map(language => language.name).join(', ')
   }
 }

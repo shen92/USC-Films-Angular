@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -15,7 +16,8 @@ import {
   CastModalComponent,
   FooterComponent 
 } from './components';
-import { DetailsPageService, HomePageService, WatchListService } from './services';
+import { DetailsPageService, HomePageService, WatchListService, SearchService } from './services';
+
 
 @NgModule({
   declarations: [
@@ -33,12 +35,14 @@ import { DetailsPageService, HomePageService, WatchListService } from './service
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    FormsModule
   ],
   providers: [
     HomePageService,
     DetailsPageService,
-    WatchListService
+    WatchListService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

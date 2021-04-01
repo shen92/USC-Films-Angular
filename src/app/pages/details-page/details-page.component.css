@@ -1,21 +1,56 @@
 .detailsPageSection {
-  width: 75%;
+  width: 72%;
   margin: auto;
 }
 
+.mediaTextGrey {
+  color: #CFD3DB;
+}
+
+.videoPlayerContainer {
+  margin-top: 6vh;
+  height: 50vh;
+}
+
 .mediaTitle {
-  line-height: 1.0;
-  font-size: 48px;
+  margin-top: 0.5vh;
+  line-height: 1.15;
+  font-size: 5em;
 }
 
 .mediaTagLine {
-  font-size: 24px;
-  margin: 10px 0;
-  font-style: italic;
+  font-size: 1.5rem;
+  margin: 1.5vh 0;
 }
 
 .mediaMeta {
   display: flex;
+  margin: 2.5vh 0 1.5vh;
+  font-size: 1.5rem;
+}
+
+.mediaGenres {
+  margin: 0.5vh 0;
+  font-size: 1.25rem;
+  overflow-wrap: break-word;
+}
+
+.mediaSpokenLanguages {
+  margin: 0.5vh 0;
+  font-size: 1.25rem;
+  overflow-wrap: break-word;
+}
+
+.buttonContainer {
+  margin: 3vh 0px 0px;
+}
+
+.alertContainer {
+  margin: 2vh 0px 0px
+}
+
+.buttonContainer button{
+  font-size: 20px;
 }
 
 .subtitle {

@@ -12,7 +12,17 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" [style.color]="activatedRoute === 'mylist' ? 'white' : '#495057'"  [routerLink]="'/mylist'" (click)="navbarCollapse = true">My List</a>
-      </li> 
+      </li>
+      <li>
+      </li>
+      <li>
+        <ng-template #rt let-r="result" let-t="term">
+          <img [src]="r.backdrop_path" class="mr-1" style="width: 30px">
+          <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+        </ng-template>
+        <input id="typeahead-template" type="text" placeholder="Search" class="searchBar" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="inputFormatter"/>
+      </li>
     </ul>
+    
   </div>
 </nav>
