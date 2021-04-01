@@ -10,14 +10,14 @@ import { Subject } from 'rxjs';
 })
 
 export class HomePageComponent implements OnInit, OnDestroy {
-
-  public currentlyPlayingMovies = [];
-  public popularMovies = [];
-  public topRatedMovies = [];
-  public trendingMovies = [];
-  public popularTvShows = [];
-  public topRatedTvShows = [];
-  public trendingTvShows = [];
+  public activatedRoute: string = "home"
+  public currentlyPlayingMovies: any[] = [];
+  public popularMovies: any[] = [];
+  public topRatedMovies: any[] = [];
+  public trendingMovies: any[] = [];
+  public popularTvShows: any[] = [];
+  public topRatedTvShows: any[] = [];
+  public trendingTvShows: any[] = [];
 
   public watchList = [];
 

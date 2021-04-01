@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap} from '@angular/router';
-import {  takeUntil } from 'rxjs/operators';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { DetailsPageService } from 'src/app/services';
@@ -11,6 +11,7 @@ import { DetailsPageService } from 'src/app/services';
   styleUrls: ['./details-page.component.css']
 })
 export class DetailsPageComponent implements OnInit {
+  public activatedRoute: string = "watch";
   public id: number = -1;
   public mediaType: string = "";
   public recommendationsTitle: string = "";
@@ -37,8 +38,10 @@ export class DetailsPageComponent implements OnInit {
   public videoWidth: number;
   public videoHeight: number;
 
+  public buttonLabel: string;
   public alert = false;
-  public alertClass = 'success';
+  public alertMessage: string;
+  public alertClass: string;
 
   public reviewerPlaceHolder = 'src/assets/img/reviewer-placeholder.jpg'
 
@@ -60,14 +63,14 @@ export class DetailsPageComponent implements OnInit {
       this.similarsTitle = `Similar ${mediaType === 'movie' ? 'Movies' : 'TV Shows'}`
       this.detailsPageService.fetchRecommendedMedia(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         this.recommendations = response.data;
-      })
+      });
       this.detailsPageService.fetchSimilarMedia(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         this.similars = response.data;
-      })
+      });
       this.detailsPageService.fetchMediaVideo(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const video = response.data[0];
         this.key = video.key;
-      })
+      });
       this.detailsPageService.fetchMediaDetails(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const details = response.data;
         this.title = details.title;
@@ -78,13 +81,18 @@ export class DetailsPageComponent implements OnInit {
         this.genres = details.genres;
         this.spokenLanguages = details.spoken_languages;
         this.description = details.overview;
-      })
+      });
       this.detailsPageService.fetchMediaCasts(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         this.casts = response.data;
-      })
+      });
       this.detailsPageService.fetchMediaReviews(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         this.reviews = response.data;
-      })
+      });
+      const watchList = JSON.parse(window.localStorage.getItem('watchList'));
+      const isInWatchList = watchList.indexOf(this.id) !== -1;
+      this.buttonLabel = isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
+      this.alertMessage = isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
+      this.alertClass = isInWatchList ? 'danger' : 'success';
     });
   }
 
@@ -93,22 +101,37 @@ export class DetailsPageComponent implements OnInit {
     this.destroy$.unsubscribe();
   }
 
-  onResize(e):void {
+  onResize(e: any): void {
     this.screenWidth = e.target.innerWidth;
     this.screenHeight = e.target.innerHeight;
     this.videoWidth = this.screenWidth < 576 ? this.screenWidth * 0.85 : this.screenWidth * 0.5;
     this.videoHeight = this.screenWidth < 576 ? this.screenHeight * 0.3 : this.screenHeight * 0.5;
   }
 
-  onButtonClick(): void {
-    this.alert = true
+  onAddButtonClick(): void {
+    this.alert = true;
+    let watchList = JSON.parse(window.localStorage.getItem('watchList'));
+    let isInWatchList = watchList.indexOf(this.id) !== -1;
+    if(isInWatchList) {
+        const index = watchList.indexOf(this.id);
+        watchList.splice(index, 1);
+    } else {
+        watchList.splice(1, 0, this.id);
+    }
+    window.localStorage.setItem('watchList', JSON.stringify(watchList));
+    isInWatchList = !isInWatchList;
+    this.buttonLabel = isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
   }
 
   onAlertClose(): void {
     this.alert = false;
+    let watchList = JSON.parse(window.localStorage.getItem('watchList'));
+    let isInWatchList = watchList.indexOf(this.id) !== -1;
+    this.alertMessage = isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
+    this.alertClass = isInWatchList ? 'danger' : 'success';
   }
 
-  getDuration():string {
+  getDuration(): string {
     const time = this.duration;
     const hours = (time / 60);
     const rhours = Math.floor(hours);

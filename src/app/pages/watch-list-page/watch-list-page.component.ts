@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./watch-list-page.component.css']
 })
 export class WatchListPageComponent implements OnInit {
-
+  public activatedRoute: string = "mylist";
+  public watchList: any[];
+  
   constructor() { }
 
   ngOnInit(): void {
+    console.log(JSON.parse(window.localStorage.getItem('watchList')));
   }
 
 }

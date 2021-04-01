@@ -1,4 +1,5 @@
 <div class="detailsPage" (window:resize)="onResize($event)">
+  <app-nav-bar [activatedRoute]="activatedRoute"></app-nav-bar>
   <div class="detailsPageSection">
     <div class="row">
       <div class="col-sm-8" style="padding: 0">
@@ -15,10 +16,10 @@
         <div>Genres: {{getGenres()}}</div>
         <div>Spoken Languages: {{getSpokenLanguages()}}</div>
         <div>
-          <button class="btn btn-primary" (click)="onButtonClick()">Add to Watchlist</button>
+          <button class="btn btn-primary" (click)="onAddButtonClick()">{{buttonLabel}}</button>
         </div>
         <div>
-          <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()">success</ngb-alert>
+          <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()">{{alertMessage}}</ngb-alert>
         </div>
       </div>
     </div>

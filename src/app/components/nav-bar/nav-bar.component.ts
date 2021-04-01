@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,11 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.css']
 })
 
-export class NavBarComponent  {
+export class NavBarComponent implements OnInit {
   public navbarCollapse: boolean = true;
+  @Input() activatedRoute: string;
+
   constructor() { 
-    
   }
 
+  ngOnInit(): void {
+  }
 
 }
