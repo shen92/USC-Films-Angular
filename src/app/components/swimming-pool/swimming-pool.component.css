@@ -16,45 +16,43 @@
   border: none;
 }
 
-@media (min-width: 576px) {
-  .carouselContainer {
-    width: 90%;
-    margin: 4vh auto;
-  }
+.carouselContainer {
+  width: 90%;
+  margin: 4vh auto;
+}
 
-  .imagesContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    gap: 1.2vw;
-    justify-content: center;
-  }
+.imagesContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 1.2vw;
+  justify-content: center;
+}
 
-  .imageContainer {
-    width: 12vw;
-    height: 100%;
-    flex: 1;
-  }
+.imageContainer {
+  width: 12vw;
+  height: 100%;
+  flex: 1;
+}
 
-  .placeholderContainer {
-    width: 12vw;
-  }
+.placeholderContainer {
+  width: 12vw;
+}
 
-  img {
-    width: 12vw;
-    height: auto;
-    cursor: pointer;
-  }
-  
-  :host ::ng-deep .carousel-control-prev {
-    left: -10vw;
-  }
-  
-  :host ::ng-deep .carousel-control-next {
-    right: -10vw;
-  }
+img {
+  width: 12vw;
+  height: auto;
+  cursor: pointer;
+}
 
-  :host ::ng-deep .carousel-indicators {
-    bottom: -7vh;
-  }
+:host ::ng-deep .carousel-control-prev {
+  left: -10vw;
+}
+
+:host ::ng-deep .carousel-control-next {
+  right: -10vw;
+}
+
+:host ::ng-deep .carousel-indicators {
+  bottom: -7vh;
 }

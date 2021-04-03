@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-poster-carousel',
@@ -7,4 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class PosterCarouselComponent {
   @Input() currentlyPlayingMovies: any[];
+  @Input() isDesktop: boolean
+
+  constructor(private router: Router) { }
+
+  onImageClick(id): void {
+    this.router.navigate( ['watch', 'movie', id]);
+  }
 }

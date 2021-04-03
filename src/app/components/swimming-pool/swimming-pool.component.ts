@@ -1,5 +1,6 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-swimming-pool',
   templateUrl: './swimming-pool.component.html',

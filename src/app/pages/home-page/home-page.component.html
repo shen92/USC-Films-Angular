@@ -1,7 +1,7 @@
  <div class="pageContaienr">
   <app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
   <div class="pageBodyContainer">
-    <app-poster-carousel [currentlyPlayingMovies]="currentlyPlayingMovies"></app-poster-carousel>
+    <app-poster-carousel [currentlyPlayingMovies]="currentlyPlayingMovies" [isDesktop]="isDesktop"></app-poster-carousel>
     <app-swimming-pool [title]="'Popular Movies'" [data]="popularMovies"></app-swimming-pool>
     <app-swimming-pool [title]="'Top Rated Movies'" [data]="topRatedMovies"></app-swimming-pool>
     <app-swimming-pool [title]="'Trending Movies'"[data]="trendingMovies"></app-swimming-pool>

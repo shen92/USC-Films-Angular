@@ -1,43 +1,18 @@
-<div class="carouselContainer">
-  <ngb-carousel 
-    *ngIf="currentlyPlayingMovies.length !== 0" 
-    id="app-poster-carousel" 
-  >
-
-    <ng-template ngbSlide>
-      <div class="imageContainer">
-        <img [src]="currentlyPlayingMovies[0].poster_path" [alt]="currentlyPlayingMovies[0].title">
-      </div>
-      <div class="carousel-caption captionContainer" >{{currentlyPlayingMovies[0].title}}</div>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <div class="imageContainer">
-        <img [src]="currentlyPlayingMovies[1].poster_path" [alt]="currentlyPlayingMovies[1].title">
-      </div>
-      <div class="carousel-caption captionContainer" >{{currentlyPlayingMovies[1].title}}</div>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <div class="imageContainer">
-        <img [src]="currentlyPlayingMovies[2].poster_path" [alt]="currentlyPlayingMovies[2].title">
-      </div>
-      <div class="carousel-caption captionContainer">{{currentlyPlayingMovies[2].title}}</div>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <div class="imageContainer">
-        <img [src]="currentlyPlayingMovies[3].poster_path" [alt]="currentlyPlayingMovies[3].title">
-      </div>
-      <div class="carousel-caption captionContainer">{{currentlyPlayingMovies[3].title}}</div>
-    </ng-template>
-
-    <ng-template ngbSlide>
-      <div class="imageContainer">
-        <img [src]="currentlyPlayingMovies[4].poster_path" [alt]="currentlyPlayingMovies[4].title">
-      </div>
-      <div class="carousel-caption captionContainer">{{currentlyPlayingMovies[4].title}}</div>
-    </ng-template>
-
-  </ngb-carousel>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-11 col-md-9" style="margin: auto;">
+      <ngb-carousel 
+        *ngIf="currentlyPlayingMovies.length !== 0" 
+        id="app-poster-carousel" 
+        [showNavigationIndicators]="isDesktop"
+      >
+        <ng-template ngbSlide *ngFor="let movie of currentlyPlayingMovies">
+          <div class="imageContainer" (click)="onImageClick(movie.id)">
+            <img [src]="movie.poster_path" [alt]="movie.title" [ngStyle]="{height: isDesktop ? '54vh' : '25vh'}">
+          </div>
+          <div class="carousel-caption captionContainer" [ngStyle]="{bottom: isDesktop ? '5%' : '-4%', left: isDesktop ? '5%' : '5%', fontSize: isDesktop ? 20 : 14}">{{movie.title}}</div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
 </div>

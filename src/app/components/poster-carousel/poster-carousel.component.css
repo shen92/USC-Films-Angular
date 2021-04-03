@@ -1,81 +1,28 @@
 #app-poster-carousel, #app-poster-carousel:active {
   width: 100%;
+  height: auto;
   margin: auto;
   outline: none;
   border: none;
+  cursor: pointer;
 }
 
-@media (min-width: 576px) {
-  .carouselContainer {
-    width: 70%;
-    height: 50vh;
-    margin: 4vh auto;
-    display: flex;
-    align-items: center;
-  }
-
-  .imageContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    transition: background-image 0.5s;
-  }
-
-  img {
-    width: 100%;
-    height: 50vh;
-    margin: auto;
-    object-fit: cover;
-    object-position: top center;
-    transition: transform 0.5s;
-    z-index: -100;
-  }
-
-  .captionContainer {
-    display: none;
-    align-items: flex-start;
-    font-size: 20px;
-    left: 10%;
-  }
-
-  #app-poster-carousel:hover .captionContainer{
-    display: flex;
-  }
+.imageContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  transition: background-image 0.5s; 
 }
 
-@media (max-width: 575px) {
-  .carouselContainer {
-    width: 100%;
-    height: 30vh;
-    margin: 2vh auto;
-  }
-
-  .imageContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    margin: auto;
-    transition: background-image 0.5s;
-  }
-
-  img {
-    width: 100%;
-    height: 30vh;
-    margin: auto;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.5s;
-  }
-
-  .captionContainer {
-    display: flex;
-    align-items: flex-start;
-    font-size: 20px;
-    left: 10%;
-  }
+img {
+  width: 100%;
+  margin: auto;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s;
+  z-index: -100;
 }
 
 #app-poster-carousel:hover img{
@@ -83,5 +30,15 @@
 }
 
 #app-poster-carousel:hover .imageContainer{
-  background-image: linear-gradient(0deg, rgba(0,0,0,1) 12%, rgba(255,255,255,0) 100%);
+  background-image: linear-gradient(0deg, rgba(0,0,0,1) 15%, rgba(255,255,255,0) 100%);
 }
+
+.captionContainer {
+  display: none;
+  align-items: flex-start;
+}
+
+#app-poster-carousel:hover .captionContainer{
+  display: flex;
+}
+

@@ -46,9 +46,5 @@ export class NavBarComponent {
     onResultClick(id, mediaType): void {
       this.router.navigate( ['watch', mediaType, id]);
     }
-
-  
-
-
-
+    
 }
