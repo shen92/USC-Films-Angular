@@ -11,5 +11,24 @@
   padding: 0px 10px;
 }
 
-:host ::ng-deep .ngb-highlight{
-} 
+.typeAheadContainer {
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .dropdown-menu { 
+  background-color: #070D2F;
+  border: 1px solid white;
+}
+
+:host ::ng-deep .dropdown-item {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+:host ::ng-deep .dropdown-menu div {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

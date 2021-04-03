@@ -17,6 +17,7 @@ import {
   FooterComponent 
 } from './components';
 import { DetailsPageService, HomePageService, WatchListService, SearchService } from './services';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { DetailsPageService, HomePageService, WatchListService, SearchService } 
     NgbModule,
     HttpClientModule,
     YouTubePlayerModule,
-    FormsModule
+    FormsModule,
+    NoopAnimationsModule
   ],
   providers: [
     HomePageService,

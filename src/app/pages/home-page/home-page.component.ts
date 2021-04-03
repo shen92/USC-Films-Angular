@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { HomePageService, WatchListService } from 'src/app/services';
 import {  takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -9,7 +10,8 @@ import { Subject } from 'rxjs';
   styleUrls: ['./home-page.component.css']
 })
 
-export class HomePageComponent implements OnInit, OnDestroy {
+export class HomePageComponent implements OnInit, AfterViewChecked, OnDestroy {
+  public isDesktop: boolean;
   public activatedRoute: string = "home"
   public currentlyPlayingMovies: any[] = [];
   public popularMovies: any[] = [];
@@ -23,10 +25,16 @@ export class HomePageComponent implements OnInit, OnDestroy {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private homePageService: HomePageService, private watchListService: WatchListService) { 
+  constructor(private breakpointObserver: BreakpointObserver, private homePageService: HomePageService, private watchListService: WatchListService) { 
+    
   }
 
   ngOnInit(): void {
+    this.breakpointObserver.observe([
+      Breakpoints.WebLandscape
+    ]).subscribe(result => {
+      this.isDesktop = result.matches;
+    });
     this.homePageService.fetchCurrentPlayingMovies().pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
       this.currentlyPlayingMovies = response.data;
     })
@@ -63,7 +71,10 @@ export class HomePageComponent implements OnInit, OnDestroy {
       })
       this.trendingTvShows = result;
     });
+    
   }
+
+  ngAfterViewChecked(): void {}
 
   ngOnDestroy(): void {
     this.destroy$.next(true);

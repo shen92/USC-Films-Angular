@@ -6,21 +6,22 @@
   </button>
 
   <div [ngbCollapse]="navbarCollapse" class="collapse navbar-collapse">
-    <ul class="navbar-nav">
-      <li class="nav-item">
+    <ul class="navbar-nav" style="width: 100%; display: flex">
+      <li class="nav-item" [ngStyle]="{display: 'flex', flexDirection: isDesktop ? 'row' : 'row-reverse'}">
         <a class="nav-link" [style.color]="activatedRoute === 'home' ? 'white' : '#495057'"  [routerLink]="'/'" (click)="navbarCollapse = true">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [ngStyle]="{display: 'flex', flexDirection: isDesktop ? 'row' : 'row-reverse'}">
         <a class="nav-link" [style.color]="activatedRoute === 'mylist' ? 'white' : '#495057'"  [routerLink]="'/mylist'" (click)="navbarCollapse = true">My List</a>
       </li>
-      <li>
-      </li>
-      <li>
-        <ng-template #rt let-r="result" let-t="term">
-          <img [src]="r.backdrop_path" class="mr-1" style="width: 30px">
-          <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
-        </ng-template>
-        <input id="typeahead-template" type="text" placeholder="Search" class="searchBar" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="inputFormatter"/>
+      <li style="display: flex; flex-grow: 1;"></li>
+      <li class="typeAheadContainer">
+          <ng-template #rt let-r="result" let-t="term">
+            <div (click)="onResultClick(r.id, r.media_type)">
+              <img [src]="r.backdrop_path" class="mr-1" style="height: 45px;">
+              <ngb-highlight [result]="r.name" [term]="t" ></ngb-highlight>
+            </div>
+          </ng-template>
+        <input type="text" class="form-control" placeholder="Search" class="searchBar" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="inputFormatter"/>
       </li>
     </ul>
     

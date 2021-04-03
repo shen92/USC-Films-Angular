@@ -1,4 +1,4 @@
-<div class="detailsPage" (window:resize)="onResize($event)">
+<div class="pageContaienr" (window:resize)="onResize($event)">
   <app-nav-bar [activatedRoute]="activatedRoute"></app-nav-bar>
   <ng-template #content let-modal>
     <div class="modal-header text-dark">
@@ -14,71 +14,75 @@
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
     </div>
   </ng-template>
-  <div class="detailsPageSection">
-    <div class="row videoPlayerContainer">
-      <div class="col-sm-8" style="padding: 0">
-        <app-video-player [key]="key" [videoWidth]="videoWidth" [videoHeight]="videoHeight"></app-video-player>
-      </div>
-      <div class="col-sm-4" style="padding: 0px 1vw">
-        <div class="mediaTitle">{{title}}</div>
-        <div class="mediaTagLine font-italic mediaTextGrey">{{tagline}}</div>
-        <div class="mediaMeta mediaTextGrey">
-          <div style="margin-right: 8px;">{{getYear()}}</div>
-          <div style="margin-right: 8px;">{{getRate()}}</div>
-          <div>{{getDuration()}}</div>
+
+  <div class="pageBodyContainer">
+    <div class="detailsPageSection">
+      <div class="row videoPlayerContainer">
+        <div class="col-sm-8" style="padding: 0">
+          <app-video-player [key]="key" [videoWidth]="videoWidth" [videoHeight]="videoHeight"></app-video-player>
         </div>
-        <div class="mediaGenres mediaTextGrey"><span style="color: white; font-size: 1.2rem;">Genres :</span> {{getGenres()}}</div>
-        <div class="mediaSpokenLanguages mediaTextGrey"><span style="color: white; font-size: 1.2rem;">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
-        <div class="buttonContainer">
-          <button class="btn btn-primary btn-lg" (click)="onAddButtonClick()">{{buttonLabel}}</button>
-        </div>
-        <div class="alertContainer">
-          <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()">{{alertMessage}}</ngb-alert>
+        <div class="col-sm-4" style="padding: 0px 1vw">
+          <div class="mediaTitle">{{title}}</div>
+          <div class="mediaTagLine font-italic mediaTextGrey">{{tagline}}</div>
+          <div class="mediaMeta mediaTextGrey">
+            <div style="margin-right: 8px;">{{getYear()}}</div>
+            <div style="margin-right: 8px;">{{getRate()}}</div>
+            <div>{{getDuration()}}</div>
+          </div>
+          <div class="mediaGenres mediaTextGrey"><span style="color: white; font-size: 1.2rem;">Genres :</span> {{getGenres()}}</div>
+          <div class="mediaSpokenLanguages mediaTextGrey"><span style="color: white; font-size: 1.2rem;">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
+          <div class="buttonContainer">
+            <button class="btn btn-primary btn-lg" (click)="onAddButtonClick()">{{buttonLabel}}</button>
+          </div>
+          <div class="alertContainer">
+            <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()">{{alertMessage}}</ngb-alert>
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-      <div class="subtitle">Description</div>
-      <div class="mediaTextGrey">{{description}}</div>
-    </div>
-    <div>
-      <div class="subtitle">Share</div>
-      <div style="display: flex">
-        <a class="twitter-share-button" target="_blank" [href]="twitterHref">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a target="_blank" [href]="facebookHref" >
-            <i class="fab fa-facebook-square socialMedia"></i>
-        </a>
+      <div>
+        <div class="subtitle">Description</div>
+        <div class="mediaTextGrey">{{description}}</div>
       </div>
-    </div>
-    <div>
-      <div>Full Cast and Crew</div>
-      <div style="width: 100%; white-space: nowrap; overflow: auto">
-        <div *ngFor="let cast of casts" class="card" style="width: 15vw; display: inline-block;" (click)="onCardClick(content, cast.id)">
-          <img class="card-img-top" [src]="cast.profile_path" alt="Card image cap" >
-          <div class="card-body" style="color: black;">
-            <div>{{cast.name}}</div>
-            <div>AS</div>
-            <div>{{cast.character}}</div>
+      <div>
+        <div class="subtitle">Share</div>
+        <div style="display: flex">
+          <a class="twitter-share-button" target="_blank" [href]="twitterHref">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a target="_blank" [href]="facebookHref" >
+              <i class="fab fa-facebook-square socialMedia"></i>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div>Full Cast and Crew</div>
+        <div style="width: 100%; white-space: nowrap; overflow: auto">
+          <div *ngFor="let cast of casts" class="card" style="width: 15vw; display: inline-block;" (click)="onCardClick(content, cast.id)">
+            <img class="card-img-top" [src]="cast.profile_path" alt="Card image cap" >
+            <div class="card-body" style="color: black;">
+              <div>{{cast.name}}</div>
+              <div>AS</div>
+              <div>{{cast.character}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>Reviews<span>{{reviewsCount}}</span></div>
+        <div class="card" *ngFor="let review of reviews" >
+          <div class="card-body" style="display: flex; color: black;">
+            <div>
+              <img [src]="review.avatar_path == null ? '' : review.avatar_path" style="width: 5vw;">
+            </div>
+            <div class="reviewContent">
+              {{review.content}}
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div>
-      <div>Reviews<span>{{reviewsCount}}</span></div>
-      <div class="card" *ngFor="let review of reviews" >
-        <div class="card-body" style="display: flex; color: black;">
-          <div>
-            <img [src]="review.avatar_path == null ? '' : review.avatar_path" style="width: 5vw;">
-          </div>
-          <div class="reviewContent">
-            {{review.content}}
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-swimming-pool [title]="recommendationsTitle" [data]="recommendations"></app-swimming-pool>
+    <app-swimming-pool [title]="similarsTitle" [data]="similars"></app-swimming-pool>
   </div>
-  <app-swimming-pool [title]="recommendationsTitle" [data]="recommendations"></app-swimming-pool>
-  <app-swimming-pool [title]="similarsTitle" [data]="similars"></app-swimming-pool>
+  <app-footer></app-footer>
 </div>

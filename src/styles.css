@@ -13,6 +13,17 @@ app-root {
   flex-direction: column;
 }
 
+.pageContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageBodyContainer {
+  flex: 1;
+}
+
 .socialMedia:hover {
   cursor: pointer
 }
