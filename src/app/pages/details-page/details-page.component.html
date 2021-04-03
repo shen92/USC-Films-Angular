@@ -1,5 +1,19 @@
 <div class="detailsPage" (window:resize)="onResize($event)">
   <app-nav-bar [activatedRoute]="activatedRoute"></app-nav-bar>
+  <ng-template #content let-modal>
+    <div class="modal-header text-dark">
+      <h4 class="modal-title" id="modal-basic-title">Name</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-dark">
+      <app-cast-modal [id]="castId"></app-cast-modal>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
   <div class="detailsPageSection">
     <div class="row videoPlayerContainer">
       <div class="col-sm-8" style="padding: 0">
@@ -29,15 +43,19 @@
     </div>
     <div>
       <div class="subtitle">Share</div>
-      <div style="display: flex;">
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-facebook-square"></i>
+      <div style="display: flex">
+        <a class="twitter-share-button" target="_blank" [href]="twitterHref">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a target="_blank" [href]="facebookHref" >
+            <i class="fab fa-facebook-square socialMedia"></i>
+        </a>
       </div>
     </div>
     <div>
       <div>Full Cast and Crew</div>
       <div style="width: 100%; white-space: nowrap; overflow: auto">
-        <div *ngFor="let cast of casts" class="card" style="width: 15vw; display: inline-block; ">
+        <div *ngFor="let cast of casts" class="card" style="width: 15vw; display: inline-block;" (click)="onCardClick(content, cast.id)">
           <img class="card-img-top" [src]="cast.profile_path" alt="Card image cap" >
           <div class="card-body" style="color: black;">
             <div>{{cast.name}}</div>

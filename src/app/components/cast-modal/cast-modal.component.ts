@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cast-modal',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cast-modal.component.css']
 })
 export class CastModalComponent implements OnInit {
-
+  @Input() id: number;
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

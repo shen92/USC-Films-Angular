@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -45,9 +46,16 @@ export class DetailsPageComponent implements OnInit {
 
   public reviewerPlaceHolder = 'src/assets/img/reviewer-placeholder.jpg'
 
+  public youtubeHref: string = "";
+  public twitterHref: string = "";
+  public facebookHref: string = "";
+
+  public modalOpen: boolean = false;
+  public castId: number = -1;
+
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private detailsPageService: DetailsPageService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private detailsPageService: DetailsPageService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.screenWidth = screen.width;
@@ -70,6 +78,10 @@ export class DetailsPageComponent implements OnInit {
       this.detailsPageService.fetchMediaVideo(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const video = response.data[0];
         this.key = video.key;
+        const title = video.name
+        this.youtubeHref =`https://www.youtube.com/watch?v=${this.key}`
+        this.twitterHref = `https://twitter.com/intent/tweet?hashtags=USC%2CCSCI571%2CFightOn&text=Watch%20${title}&url=${encodeURIComponent(this.youtubeHref)}%0A`;
+        this.facebookHref =`https://www.facebook.com/sharer/sharer.php?u=${this.youtubeHref}`
       });
       this.detailsPageService.fetchMediaDetails(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const details = response.data;
@@ -131,6 +143,11 @@ export class DetailsPageComponent implements OnInit {
     this.alertClass = isInWatchList ? 'danger' : 'success';
   }
 
+  onCardClick(content, id): void {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
+    this.castId = id;
+  }
+
   getDuration(): string {
     const time = this.duration;
     const hours = (time / 60);
@@ -155,4 +172,6 @@ export class DetailsPageComponent implements OnInit {
   getSpokenLanguages(): string{
     return this.spokenLanguages.map(language => language.name).join(', ')
   }
+
+  
 }
