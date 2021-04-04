@@ -1,6 +1,6 @@
-import { Component, OnInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { HomePageService, WatchListService } from 'src/app/services';
+import { HomePageService } from 'src/app/services';
 import {  takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
@@ -10,7 +10,7 @@ import { Subject } from 'rxjs';
   styleUrls: ['./home-page.component.css']
 })
 
-export class HomePageComponent implements OnInit, AfterViewChecked, OnDestroy {
+export class HomePageComponent implements OnInit, OnDestroy {
   public isDesktop: boolean;
   public activatedRoute: string = "home"
   public currentlyPlayingMovies: any[] = [];
@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit, AfterViewChecked, OnDestroy {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private breakpointObserver: BreakpointObserver, private homePageService: HomePageService, private watchListService: WatchListService) { 
+  constructor(private breakpointObserver: BreakpointObserver, private homePageService: HomePageService) { 
     
   }
 
@@ -75,8 +75,6 @@ export class HomePageComponent implements OnInit, AfterViewChecked, OnDestroy {
     console.log(watchList)
     this.watchList = watchList;
   }
-
-  ngAfterViewChecked(): void {}
 
   ngOnDestroy(): void {
     this.destroy$.next(true);

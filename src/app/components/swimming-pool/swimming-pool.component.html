@@ -9,10 +9,10 @@
           <ng-template ngbSlide *ngFor="let group of groups">
             <div class="row" style="margin: auto;" >
               <div class="col-2 itemContainerDesktop" *ngFor="let element of group" style="margin: auto;">
-                <div class="imageContainerDesktop" style="margin: auto;" (click)="onClick(element.id, element.media_type)">
-                  <img class="imageDesktop" *ngIf="!element.hasOwnProperty('placeholder')"  [src]="element.poster_path" [alt]="element.title" >
+                <div *ngIf="!element.hasOwnProperty('placeholder')" class="imageContainerDesktop" style="margin: auto;" (click)="onClick(element.id, element.media_type)">
+                  <img class="imageDesktop"  [src]="element.poster_path" [alt]="element.title">
                 </div>
-                <div class="carousel-caption captionContainerDesktop">
+                <div *ngIf="!element.hasOwnProperty('placeholder')" class="carousel-caption captionContainerDesktop">
                 {{element.title}}
                 </div>
               </div>
