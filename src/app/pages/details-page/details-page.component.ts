@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { takeUntil } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { DetailsPageService } from 'src/app/services';
   templateUrl: './details-page.component.html',
   styleUrls: ['./details-page.component.css']
 })
-export class DetailsPageComponent implements OnInit {
+export class DetailsPageComponent implements OnInit, OnDestroy {
   public activatedRoute: string = "watch";
   public id: number = -1;
   public mediaType: string = "";
@@ -101,7 +101,13 @@ export class DetailsPageComponent implements OnInit {
         this.reviews = response.data;
       });
       const watchList = JSON.parse(window.localStorage.getItem('watchList'));
-      const isInWatchList = watchList.indexOf(this.id) !== -1;
+      const isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
+      const currentIndex = watchList.findIndex(item => item.id === this.id)
+      if(isInWatchList) {
+        watchList.splice(currentIndex, 1);
+      } 
+      watchList.splice(0, 0, {media_type: this.mediaType, id: this.id});
+      window.localStorage.setItem('watchList', JSON.stringify(watchList));
       this.buttonLabel = isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
       this.alertMessage = isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
       this.alertClass = isInWatchList ? 'danger' : 'success';
@@ -109,6 +115,7 @@ export class DetailsPageComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
+    
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
@@ -123,12 +130,12 @@ export class DetailsPageComponent implements OnInit {
   onAddButtonClick(): void {
     this.alert = true;
     let watchList = JSON.parse(window.localStorage.getItem('watchList'));
-    let isInWatchList = watchList.indexOf(this.id) !== -1;
+    let isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
     if(isInWatchList) {
-        const index = watchList.indexOf(this.id);
+        const index = watchList.findIndex(item => item.id === this.id);
         watchList.splice(index, 1);
     } else {
-        watchList.splice(1, 0, this.id);
+        watchList.splice(0, 0, {mediaType: this.mediaType, id: this.id});
     }
     window.localStorage.setItem('watchList', JSON.stringify(watchList));
     isInWatchList = !isInWatchList;
@@ -138,7 +145,7 @@ export class DetailsPageComponent implements OnInit {
   onAlertClose(): void {
     this.alert = false;
     let watchList = JSON.parse(window.localStorage.getItem('watchList'));
-    let isInWatchList = watchList.indexOf(this.id) !== -1;
+    let isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
     this.alertMessage = isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
     this.alertClass = isInWatchList ? 'danger' : 'success';
   }

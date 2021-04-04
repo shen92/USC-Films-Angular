@@ -2,6 +2,7 @@
   <app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
   <div class="pageBodyContainer">
     <app-poster-carousel [currentlyPlayingMovies]="currentlyPlayingMovies" [isDesktop]="isDesktop"></app-poster-carousel>
+    <app-swimming-pool [title]="'Continue Watching'" [data]="watchList" [isDesktop]="isDesktop"></app-swimming-pool>
     <app-swimming-pool [title]="'Popular Movies'" [data]="popularMovies" [isDesktop]="isDesktop"></app-swimming-pool>
     <app-swimming-pool [title]="'Top Rated Movies'" [data]="topRatedMovies" [isDesktop]="isDesktop"></app-swimming-pool>
     <app-swimming-pool [title]="'Trending Movies'"[data]="trendingMovies" [isDesktop]="isDesktop"></app-swimming-pool>

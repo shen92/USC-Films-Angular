@@ -50,4 +50,11 @@ export class HomePageService {
   fetchTrendingTVShows() {
     return this.http.get(`${BASE_URL}/tvs/trending`).pipe(retry(3), catchError(this.handleError));
   }
-}
+
+  fetchWatchListItems() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let params = new URLSearchParams();
+    return this.http.get(`${BASE_URL}/tvs/trending`).pipe(retry(3), catchError(this.handleError));
+  }
+ }

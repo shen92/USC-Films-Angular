@@ -21,7 +21,7 @@ export class HomePageComponent implements OnInit, AfterViewChecked, OnDestroy {
   public topRatedTvShows: any[] = [];
   public trendingTvShows: any[] = [];
 
-  public watchList = [];
+  public watchList: any = [];
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -71,7 +71,9 @@ export class HomePageComponent implements OnInit, AfterViewChecked, OnDestroy {
       })
       this.trendingTvShows = result;
     });
-    
+    const watchList = JSON.parse(window.localStorage.getItem('watchList'));
+    console.log(watchList)
+    this.watchList = watchList;
   }
 
   ngAfterViewChecked(): void {}
