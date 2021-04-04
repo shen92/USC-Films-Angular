@@ -55,14 +55,39 @@
   display: flex;
 }
 
+.itemContainerMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54vh;
+  transform: scale(0.9);
+  transition: transform 0.25s;
+}
+
+.itemContainerMobile:hover {
+  transform: scale(1.0);
+}
+
+.imageContainerMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(255,255,255,0) 100%);
+  cursor: pointer;
+}
+
 .imageMobile{
   width: auto;
-  height: auto;
+  height: 54vh; 
+}
+
+.captionContainerMobile {
+  display: flex;
+  text-align: left;
 }
 
 img {
   z-index: -100;
-  
 }
 
 :host ::ng-deep .carousel-control-prev {
