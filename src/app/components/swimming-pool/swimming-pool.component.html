@@ -1,14 +1,14 @@
 <div class="container-fluid" *ngIf="data.length !== 0" style="margin: auto;">
-  <div class="row" style="margin: auto;">
-    <div class="col-10" style="margin: auto;">
+  <div class="row justify-content-center" style="margin: auto;">
+    <div class="col-9" style="margin: auto;">
       <div [class]="isDesktop ? 'swimmingPoolTitleDesktop' : 'swimmingPoolTitleMobile'">
         {{title}}
       </div>
       <div class="container-fluid" style="margin: auto;">
         <ngb-carousel *ngIf="isDesktop" id="swimming-pool-carousel" [interval]="0" [showNavigationIndicators]="isDesktop">
           <ng-template ngbSlide *ngFor="let group of groups">
-            <div class="row" style="margin: auto;" >
-              <div class="col-2 itemContainerDesktop" *ngFor="let element of group" style="margin: auto;">
+            <div class="row gx-5 justify-content-center" style="margin: auto;" >
+              <div class="col-2 p-3 itemContainerDesktop" *ngFor="let element of group" style="margin: auto;">
                 <div class="imageContainerDesktop" *ngIf="!element.hasOwnProperty('placeholder')"  style="margin: auto;" (click)="onClick(element.id, element.media_type)">
                   <img class="imageDesktop"  [src]="element.poster_path" [alt]="element.title">
                 </div>

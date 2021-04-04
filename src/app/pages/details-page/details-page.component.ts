@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { DetailsPageService } from 'src/app/services';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-details-page',
@@ -12,7 +13,9 @@ import { DetailsPageService } from 'src/app/services';
   styleUrls: ['./details-page.component.css']
 })
 export class DetailsPageComponent implements OnInit, OnDestroy {
+  public isDesktop: boolean;
   public activatedRoute: string = "watch";
+
   public id: number = -1;
   public mediaType: string = "";
   public recommendationsTitle: string = "";
@@ -32,7 +35,6 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
 
   public recommendations = [];
   public similars = [];
-  public video = {};
 
   public screenWidth: number;
   public screenHeight: number;
@@ -44,7 +46,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   public alertMessage: string;
   public alertClass: string;
 
-  public reviewerPlaceHolder = 'src/assets/img/reviewer-placeholder.jpg'
+  public reviewerPlaceHolder = 'src/assets/img/reviewer-placeholder.jpg' //TODO
 
   public youtubeHref: string = "";
   public twitterHref: string = "";
@@ -55,13 +57,18 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private detailsPageService: DetailsPageService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) { }
+  constructor(private breakpointObserver: BreakpointObserver, private detailsPageService: DetailsPageService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.screenWidth = screen.width;
     this.screenHeight = screen.height;
     this.videoWidth = this.screenWidth < 576 ? this.screenWidth * 0.85 : this.screenWidth * 0.48;
     this.videoHeight = this.screenWidth < 576 ? this.screenHeight * 0.3 : this.screenHeight * 0.5;
+    this.breakpointObserver.observe([
+      Breakpoints.WebLandscape
+    ]).subscribe(result => {
+      this.isDesktop = result.matches;
+    });
     this.route.paramMap.subscribe((params: ParamMap) => {
       const id = parseInt(params.get('id'), 10);
       const mediaType = params.get('mediaType');

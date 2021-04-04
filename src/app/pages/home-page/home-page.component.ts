@@ -12,7 +12,9 @@ import { Subject } from 'rxjs';
 
 export class HomePageComponent implements OnInit, OnDestroy {
   public isDesktop: boolean;
-  public activatedRoute: string = "home"
+  public activatedRoute: string = "home";
+
+  public watchList: any[] = [];
   public currentlyPlayingMovies: any[] = [];
   public popularMovies: any[] = [];
   public topRatedMovies: any[] = [];
@@ -21,13 +23,9 @@ export class HomePageComponent implements OnInit, OnDestroy {
   public topRatedTvShows: any[] = [];
   public trendingTvShows: any[] = [];
 
-  public watchList: any = [];
-
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private breakpointObserver: BreakpointObserver, private homePageService: HomePageService) { 
-    
-  }
+  constructor(private breakpointObserver: BreakpointObserver, private homePageService: HomePageService) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe([
