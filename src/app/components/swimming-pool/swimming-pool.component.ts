@@ -9,18 +9,19 @@ import { Router } from '@angular/router';
 export class SwimmingPoolComponent implements OnChanges {
   @Input() title: string;
   @Input() data: any[];
+  @Input() isDesktop: boolean;
 
-  public groups = [];
-  public elements = 6;
-  public page = 0;
+  public groups: any[] = [];
+  public elements: number = 6;
+  public page: number = 0;
 
   constructor(private router: Router) { }
 
   ngOnChanges(): void {
-    this.getElements()
+    this.groupElements();
   }
 
-  getElements(): void {
+  groupElements(): void {
     if(this.data == null || this.data.length === 0)
       return;
     let result = [];

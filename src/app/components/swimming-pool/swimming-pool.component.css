@@ -1,11 +1,9 @@
-.swimmingPool {
-  width: 90%;
-  margin: auto;
+.swimmingPoolTitleDesktop {
+  font-size: 32px;
 }
 
-.swimmingPoolTitle {
+.swimmingPoolTitleMobile {
   font-size: 32px;
-  font-weight: 400;
 }
 
 #swimming-pool-carousel, #swimming-pool-carousel:active {
@@ -16,33 +14,54 @@
   border: none;
 }
 
-.carouselContainer {
-  width: 90%;
-  margin: 4vh auto;
-}
-
-.imagesContainer {
-  width: 100%;
-  height: 100%;
+.itemContainerDesktop {
   display: flex;
-  gap: 1.2vw;
+  align-items: center;
   justify-content: center;
+  cursor: pointer;
+  height: 36vh;
 }
 
-.imageContainer {
-  width: 12vw;
-  height: 100%;
-  flex: 1;
+.imageContainerDesktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: none;
+  transition: background-color 0.25s;
 }
 
-.placeholderContainer {
-  width: 12vw;
+.itemContainerDesktop:hover .imageContainerDesktop {
+  background-image: linear-gradient(0deg, rgba(0,0,0,1) 15%, rgba(255,255,255,0) 100%);
+}
+
+.imageDesktop{
+  transform: scale(0.9);
+  width: auto;
+  height: 32vh;
+  transition: transform 0.25s;
+}
+
+.itemContainerDesktop:hover .imageDesktop {
+  transform: scale(1.0);
+}
+
+.captionContainerDesktop {
+  display: none;
+  text-align: left;
+  transition: display 0.25s;
+}
+
+.itemContainerDesktop:hover .captionContainerDesktop {
+  display: flex;
+}
+
+.imageMobile{
+  width: auto;
+  height: auto;
 }
 
 img {
-  width: 12vw;
-  height: auto;
-  cursor: pointer;
+  z-index: -100;
 }
 
 :host ::ng-deep .carousel-control-prev {

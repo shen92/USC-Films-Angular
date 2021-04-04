@@ -1,16 +1,39 @@
-<div class="swimmingPool" *ngIf="this.data !=null && this.data.length !== 0" >
-  <div class="swimmingPoolTitle">{{title}}</div>
-  <div class="carouselContainer">
-    <ngb-carousel *ngIf="true" id="swimming-pool-carousel" [interval]="0">
-      <ng-template ngbSlide *ngFor="let group of groups">
-        <div class="imagesContainer">
-          <div *ngFor="let element of group" >
-            <div [class]="element.hasOwnProperty('placeholder') ? 'placeholderContainer' : 'imagesContainer'" >
-              <img *ngIf="!element.hasOwnProperty('placeholder')" [src]="element.poster_path" [alt]="element.title" (click)="onClick(element.id, element.media_type)">
-            </div>
-          </div>
+<div class="container-fluid" *ngIf="data.length !== 0" style="margin: auto;">
+  <div class="row" style="margin: auto;">
+    <div class="col-10" style="margin: auto;">
+      <div [class]="isDesktop ? 'swimmingPoolTitleDesktop' : 'swimmingPoolTitleMobile'">
+        {{title}}
       </div>
-      </ng-template>
-    </ngb-carousel>
+      <div class="container-fluid" style="margin: auto;">
+        <ngb-carousel *ngIf="isDesktop" id="swimming-pool-carousel" [interval]="0" [showNavigationIndicators]="isDesktop">
+          <ng-template ngbSlide *ngFor="let group of groups">
+            <div class="row" style="margin: auto;" >
+              <div class="col-2 itemContainerDesktop" *ngFor="let element of group" style="margin: auto;">
+                <div class="imageContainerDesktop" style="margin: auto;">
+                  <img class="imageDesktop" *ngIf="!element.hasOwnProperty('placeholder')"  [src]="element.poster_path" [alt]="element.title" (click)="onClick(element.id, element.media_type)">
+                </div>
+                <div class="carousel-caption captionContainerDesktop">
+                {{element.title}}
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+    
+        <ngb-carousel *ngIf="!isDesktop" id="swimming-pool-carousel" [interval]="0" [showNavigationIndicators]="isDesktop">
+          <ng-template ngbSlide *ngFor="let element of data">
+            <div class="row">
+                <img class="col-12 imageMobile" *ngIf="!element.hasOwnProperty('placeholder')" [src]="element.poster_path" [alt]="element.title" (click)="onClick(element.id, element.media_type)">
+            </div>
+            <div class="carousel-caption captionContainer" [ngStyle]="{bottom: isDesktop ? '5%' : '-4%', left: isDesktop ? '5%' : '5%', fontSize: isDesktop ? 20 : 14}">
+              {{element.title}}
+            </div>
+          </ng-template>
+          
+        </ngb-carousel>
+    
+      </div>
+    </div>
   </div>
+  
 </div>
