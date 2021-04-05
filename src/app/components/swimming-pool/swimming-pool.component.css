@@ -56,6 +56,7 @@
 }
 
 .itemContainerMobile {
+  padding: 1vh 1vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,5 +100,5 @@ img {
 }
 
 :host ::ng-deep .carousel-indicators {
-  bottom: -6vh;
+  bottom: -7vh;
 }
