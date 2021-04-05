@@ -1,3 +1,11 @@
+.swimmingPoolDesktop {
+  height: 40vh;
+}
+
+.swimmingPoolMobile {
+  height: 50vh;
+}
+
 .swimmingPoolTitleDesktop {
   font-size: 32px;
 }
@@ -99,5 +107,5 @@ img {
 }
 
 :host ::ng-deep .carousel-indicators {
-  bottom: -7vh;
+  bottom: -3vh;
 }

@@ -118,6 +118,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       });
       this.detailsPageService.fetchMediaReviews(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         this.reviews = response.data;
+        this.reviewsCount = response.count;
       });
       
     });
@@ -133,6 +134,9 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
     this.alert = true;
     let watchList = JSON.parse(window.localStorage.getItem('watchList'));
     let isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
+    this.buttonLabel = isInWatchList ?  'Remove from Watchlist' : 'Add to Watchlist';
+    this.alertMessage = isInWatchList ? 'Added to watchlist.' : 'Removed from watchlist.';
+    this.alertClass = isInWatchList ? 'success' : 'danger';
     if(isInWatchList) {
         const index = watchList.findIndex(item => item.id === this.id);
         watchList.splice(index, 1);
@@ -140,8 +144,6 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
         watchList.splice(0, 0, {mediaType: this.mediaType, id: this.id});
     }
     window.localStorage.setItem('watchList', JSON.stringify(watchList));
-    isInWatchList = !isInWatchList;
-    this.buttonLabel = isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
   }
 
   onAlertClose(): void {
