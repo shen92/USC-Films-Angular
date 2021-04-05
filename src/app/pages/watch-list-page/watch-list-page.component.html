@@ -1,6 +1,8 @@
 
 <div class="pageContainer">
   <app-nav-bar [activatedRoute]="activatedRoute"></app-nav-bar>
-  <div class="pageBodyContainer">This is my list</div>
+  <div class="pageBodyContainer centerContent">
+    <div *ngIf="watchList.length === 0" [class]="isDesktop ? 'messageDesktop' : 'messageMobile'">No items found in Watchlist.</div>
+  </div>
   <app-footer></app-footer>
 </div>

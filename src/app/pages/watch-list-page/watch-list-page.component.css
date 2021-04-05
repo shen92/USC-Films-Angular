@@ -2,3 +2,18 @@
   display: flex;
   flex-direction: column;
 }
+
+.centerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.messageDesktop {
+  margin-top: 10vh;
+  font-size: 2rem;
+}
+
+.messageMobile {
+
+}
