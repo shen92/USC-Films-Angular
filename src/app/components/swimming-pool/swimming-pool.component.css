@@ -56,17 +56,16 @@
 }
 
 .itemContainerMobile {
-  padding: 1vh 1vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 54vh;
+  height: 60vh;
   transform: scale(0.9);
   transition: transform 0.25s;
 }
 
 .itemContainerMobile:hover {
-  transform: scale(1.0);
+  transform: scale(0.96);
 }
 
 .imageContainerMobile {
