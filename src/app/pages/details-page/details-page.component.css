@@ -65,7 +65,7 @@
 
 .mediaGenresMobile {
   margin: 0.5vh 0;
-  font-size: 1.25rem;
+  font-size: 1rem;
   overflow-wrap: break-word;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .mediaSpokenLanguagesMobile {
-  font-size: 1.25rem;
+  font-size: 1rem;
   overflow-wrap: break-word;
 }
 
@@ -88,15 +88,31 @@
 }
 
 .buttonContainer button{
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
-.subtitle {
-  font-weight: 700;
-  font-size: 20px;
+.sectionDesktop {
 }
 
-.alertDesktop span{
+.subtitleDesktop {
+  margin: 1vh 0px;
+  font-size: 1.5rem;
+}
+
+.subtitleMobile {
+  margin: 1vh 0px;
+  font-size: 1.25rem;
+}
+
+.descriptionDesktop {
+  font-size: 1.25rem;
+}
+
+.descriptionMobile {
+  font-size: 1rem;
+}
+
+.alertDesktop span {
   margin: 1vh 1vw;
 }
 

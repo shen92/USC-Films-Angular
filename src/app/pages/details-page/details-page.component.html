@@ -17,7 +17,7 @@
 
   <div class="pageBodyContainer">
     <div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
-      <div class="row justify-content-center" style="margin: auto;">
+      <div class="row justify-content-center">
         <div class="col-sm-11 col-md-9">
           <div class="row justify-content-center">
             <div class="col-sm-12 col-md-8">
@@ -48,21 +48,29 @@
               </div>
             </div>
           </div>
-          <div>
-            <div class="subtitle">Description</div>
-            <div class="mediaTextGrey">{{description}}</div>
+          <div class="col-sm-12" [style.padding]="!isDesktop ? 'none' : ''">
+          <div [class]="isDesktop ? 'sectionDesktop' : ''" style="margin: auto;">
+            <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
+              Description
+            </div>
+            <div [class]="isDesktop ? 'descriptionDesktop' : 'descriptionMobile'"class="mediaTextGrey">
+              {{description}}
+            </div>
           </div>
-          <div>
-            <div class="subtitle">Share</div>
+          <div [class]="isDesktop ? 'sectionDesktop' : ''" style="margin: auto;">
+            <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
+                Share
+            </div>
             <div style="display: flex">
               <a class="twitter-share-button" target="_blank" [href]="twitterHref">
-                <i class="fab fa-twitter"></i>
+                <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-twitter"></i>
               </a>
               <a target="_blank" [href]="facebookHref" >
-                  <i class="fab fa-facebook-square socialMedia"></i>
+                  <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-facebook-square socialMedia"></i>
               </a>
             </div>
           </div>
+        </div>
           <div>
             <div>Full Cast and Crew</div>
             <!-- <div style="width: 100vw; white-space: nowrap; overflow: auto">

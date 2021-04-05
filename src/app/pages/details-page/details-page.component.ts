@@ -86,7 +86,6 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       this.detailsPageService.fetchMediaDetails(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const details = response.data;
         this.title = details.title;
-        
         this.tagline = details.tagline;
         this.year = mediaType === 'movie' ? details.release_date : details.first_air_date;
         this.vote_average = details.vote_average;
