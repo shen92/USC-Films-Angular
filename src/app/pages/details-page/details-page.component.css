@@ -91,7 +91,12 @@
   font-size: 1.25rem;
 }
 
+.alertDesktop span {
+  margin: 1vh 1vw;
+}
+
 .sectionDesktop {
+  padding: 0px 0.8vw;
 }
 
 .subtitleDesktop {
@@ -112,9 +117,14 @@
   font-size: 1rem;
 }
 
-.alertDesktop span {
-  margin: 1vh 1vw;
+.shareDesktop { 
+  font-size: 2.25rem;
 }
+
+.shareMobile {
+  font-size: 1.75rem;
+}
+
 
 .reviewContent {
   display: -webkit-box;

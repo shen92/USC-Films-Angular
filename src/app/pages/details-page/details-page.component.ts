@@ -86,6 +86,13 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       this.detailsPageService.fetchMediaDetails(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const details = response.data;
         this.title = details.title;
+        this.detailsPageService.fetchMediaVideo(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
+          const video = response.data[0];
+          this.key = video.key;
+          this.youtubeHref =`https://www.youtube.com/watch?v=${this.key}`
+          this.twitterHref = `https://twitter.com/intent/tweet?hashtags=USC%2CCSCI571%2CFightOn&text=Watch%20${this.title}&url=${encodeURIComponent(this.youtubeHref)}%0A`;
+          this.facebookHref =`https://www.facebook.com/sharer/sharer.php?u=${this.youtubeHref}`
+        });
         this.tagline = details.tagline;
         this.year = mediaType === 'movie' ? details.release_date : details.first_air_date;
         this.vote_average = details.vote_average;
@@ -100,19 +107,12 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
           watchList.splice(currentIndex, 1);
         } 
         watchList.splice(0, 0, details);
-      window.localStorage.setItem('watchList', JSON.stringify(watchList));
-      this.buttonLabel = isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
-      this.alertMessage = isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
-      this.alertClass = isInWatchList ? 'danger' : 'success';
+        window.localStorage.setItem('watchList', JSON.stringify(watchList));
+        this.buttonLabel = isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
+        this.alertMessage = isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
+        this.alertClass = isInWatchList ? 'danger' : 'success';
       });
-      this.detailsPageService.fetchMediaVideo(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
-        const video = response.data[0];
-        this.key = video.key;
-        const title = video.title;
-        this.youtubeHref =`https://www.youtube.com/watch?v=${this.key}`
-        this.twitterHref = `https://twitter.com/intent/tweet?hashtags=USC%2CCSCI571%2CFightOn&text=Watch%20${title}&url=${encodeURIComponent(this.youtubeHref)}%0A`;
-        this.facebookHref =`https://www.facebook.com/sharer/sharer.php?u=${this.youtubeHref}`
-      });
+      
       this.detailsPageService.fetchMediaCasts(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         this.casts = response.data;
       });

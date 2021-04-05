@@ -17,12 +17,14 @@
 
   <div class="pageBodyContainer">
     <div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
-      <div class="row justify-content-center">
+      <div class="row justify-content-center" style="margin: auto;">
         <div class="col-sm-11 col-md-9">
           <div class="row justify-content-center">
+
             <div class="col-sm-12 col-md-8">
               <app-video-player [key]="key" [videoWidth]="videoWidth" [videoHeight]="videoHeight"></app-video-player>
-              </div>
+            </div>
+
             <div class="col-sm-12 col-md-4" style="padding: none;">
               <div [class]="isDesktop? 'mediaTitleDesktop' : 'mediaTitleMobile'">
                 {{title}}
@@ -48,7 +50,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-12" [style.padding]="!isDesktop ? 'none' : ''">
+
           <div [class]="isDesktop ? 'sectionDesktop' : ''" style="margin: auto;">
             <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
               Description
@@ -57,20 +59,21 @@
               {{description}}
             </div>
           </div>
-          <div [class]="isDesktop ? 'sectionDesktop' : ''" style="margin: auto;">
+
+          <div [class]="isDesktop ? 'sectionDesktop' : ''" [style.marginTop]="isDesktop ? '4vh' : ''" style="margin: auto;">
             <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
                 Share
             </div>
-            <div style="display: flex">
+            <div style="display: flex; gap: 0.5vw">
               <a class="twitter-share-button" target="_blank" [href]="twitterHref">
                 <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-twitter"></i>
               </a>
               <a target="_blank" [href]="facebookHref" >
-                  <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-facebook-square socialMedia"></i>
+                  <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-facebook-square socialMedia" style="color: #0e2cff;"></i>
               </a>
             </div>
           </div>
-        </div>
+
           <div>
             <div>Full Cast and Crew</div>
             <!-- <div style="width: 100vw; white-space: nowrap; overflow: auto">
