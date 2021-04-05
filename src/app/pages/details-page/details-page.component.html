@@ -24,20 +24,27 @@
               <app-video-player [key]="key" [videoWidth]="videoWidth" [videoHeight]="videoHeight"></app-video-player>
               </div>
             <div class="col-sm-12 col-md-4" style="padding: none;">
-              <div [class]="isDesktop? 'mediaTitleDesktop' : 'mediaTitleMobile'">{{title}}</div>
-              <div [class]="isDesktop ? 'mediaTagLineDesktop' : 'mediaTagLineMobile'" class="font-italic mediaTextGrey">{{tagline}}</div>
-              <div class="mediaMeta mediaTextGrey">
+              <div [class]="isDesktop? 'mediaTitleDesktop' : 'mediaTitleMobile'">
+                {{title}}
+              </div>
+              <div [class]="isDesktop ? 'mediaTagLineDesktop' : 'mediaTagLineMobile'" class="font-italic mediaTextGrey">
+                {{tagline}}
+              </div>
+              <div [class]="isDesktop ? 'mediaMetaDesktop' : 'mediaMetaMobile' "class="mediaMeta mediaTextGrey">
                 <div style="margin-right: 8px;">{{getYear()}}</div>
                 <div style="margin-right: 8px;">{{getRate()}}</div>
                 <div>{{getDuration()}}</div>
               </div>
-              <div class="mediaGenres mediaTextGrey"><span style="color: white; font-size: 1.2rem;">Genres :</span> {{getGenres()}}</div>
-              <div class="mediaSpokenLanguages mediaTextGrey"><span style="color: white; font-size: 1.2rem;">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
+              <div [class]="isDesktop ? 'mediaGenresDesktop' : 'mediaGenresMobile'" class="mediaTextGrey">
+                <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Genres :</span> {{getGenres()}}
+              </div>
+              <div [class]="isDesktop ? 'mediaSpokenLanguagesDesktop' : 'mediaSpokenLanguagesMobile'"  class="mediaTextGrey">
+                <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
               <div class="buttonContainer">
                 <button class="btn btn-primary btn-lg" (click)="onAddButtonClick()">{{buttonLabel}}</button>
               </div>
               <div class="alertContainer">
-                <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()">{{alertMessage}}</ngb-alert>
+                <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()" [class]="isDesktop ? 'alertDesktop' : ''">{{alertMessage}}</ngb-alert>
               </div>
             </div>
           </div>

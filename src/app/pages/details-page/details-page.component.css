@@ -2,6 +2,10 @@
   color: #CFD3DB;
 }
 
+.mediaTextWhite {
+  color: white
+}
+
 .contentMarginDesktop {
   margin-top: 8vh;
 }
@@ -25,28 +29,52 @@
 
 .mediaTagLineDesktop {
   font-size: 1.5rem;
-  margin: 1.5vh 0;
+  margin: 1vh 0;
 }
 
 .mediaTagLineMobile {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 1.5vh 0;
 }
 
-.mediaMeta {
+.mediaMetaDesktop {
   display: flex;
-  margin: 2.5vh 0 1.5vh;
+  margin: 2vh 0 1vh;
   font-size: 1.5rem;
 }
 
-.mediaGenres {
+.mediaMetaMobile {
+  display: flex;
+  margin: 2.5vh 0 1.5vh;
+  font-size: 1.25rem;
+}
+
+.mediaLabelDesktop {
+  font-size: 1.25rem;
+}
+
+.mediaLabelMobile {
+  font-size: 1rem;
+}
+
+.mediaGenresDesktop {
+  margin: 0.5vh 0;
+  font-size: 1.4rem;
+  overflow-wrap: break-word;
+}
+
+.mediaGenresMobile {
   margin: 0.5vh 0;
   font-size: 1.25rem;
   overflow-wrap: break-word;
 }
 
-.mediaSpokenLanguages {
-  margin: 0.5vh 0;
+.mediaSpokenLanguagesDesktop {
+  font-size: 1.4rem;
+  overflow-wrap: break-word;
+}
+
+.mediaSpokenLanguagesMobile {
   font-size: 1.25rem;
   overflow-wrap: break-word;
 }
@@ -66,6 +94,10 @@
 .subtitle {
   font-weight: 700;
   font-size: 20px;
+}
+
+.alertDesktop span{
+  margin: 1vh 1vw;
 }
 
 .reviewContent {
