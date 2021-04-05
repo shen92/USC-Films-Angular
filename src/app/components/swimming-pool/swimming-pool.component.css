@@ -15,10 +15,10 @@
 }
 
 .itemContainerDesktop {
+  padding: 1vh 2vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 36vh;
 }
 
 .imageContainerDesktop {
@@ -99,5 +99,5 @@ img {
 }
 
 :host ::ng-deep .carousel-indicators {
-  bottom: -7vh;
+  bottom: -6vh;
 }
