@@ -1,5 +1,22 @@
 .navbar-custom {
-  background: #040D20;
+  background: #040D20; 
+}
+
+.inputDesktop {
+  margin-right: 2vw;
+}
+
+:host ::ng-deep .navbar-brand {
+  font-size: 1.5rem;
+}
+
+:host ::ng-deep .nav-link {
+  margin-right: 0.75vw;
+  font-size: 1.2rem;
+}
+
+:host ::ng-deep a.navbar-brand {
+  padding: 1vh 1vw;
 }
 
 .searchBar {

@@ -60,14 +60,14 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   constructor(private breakpointObserver: BreakpointObserver, private detailsPageService: DetailsPageService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.screenWidth = screen.width;
-    this.screenHeight = screen.height;
-    this.videoWidth = this.screenWidth < 576 ? this.screenWidth * 0.85 : this.screenWidth * 0.48;
-    this.videoHeight = this.screenWidth < 576 ? this.screenHeight * 0.3 : this.screenHeight * 0.5;
     this.breakpointObserver.observe([
       Breakpoints.WebLandscape
     ]).subscribe(result => {
       this.isDesktop = result.matches;
+      this.screenWidth = window.innerWidth;
+      this.screenHeight = window.innerHeight;
+      this.videoWidth = this.isDesktop ? this.screenWidth * 0.45 : this.screenWidth * 0.875;
+      this.videoHeight = this.isDesktop ? this.screenHeight * 0.5 : this.screenHeight * 0.3;
     });
     this.route.paramMap.subscribe((params: ParamMap) => {
       const id = parseInt(params.get('id'), 10);
@@ -128,13 +128,6 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
     
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
-  }
-
-  onResize(e: any): void {
-    this.screenWidth = e.target.innerWidth;
-    this.screenHeight = e.target.innerHeight;
-    this.videoWidth = this.screenWidth < 576 ? this.screenWidth * 0.85 : this.screenWidth * 0.48;
-    this.videoHeight = this.screenWidth < 576 ? this.screenHeight * 0.3 : this.screenHeight * 0.5;
   }
 
   onAddButtonClick(): void {

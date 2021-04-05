@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark navbar-custom pl-5 pr-5">
+<nav class="navbar navbar-expand-sm navbar-dark navbar-custom pl-5 pr-5" >
   <a class="navbar-brand" [routerLink]="'/'">USC Films</a>
 
   <button class="navbar-toggler" type="button" (click)="navbarCollapse = !navbarCollapse">
@@ -21,7 +21,7 @@
               <ngb-highlight [result]="r.name" [term]="t" ></ngb-highlight>
             </div>
           </ng-template>
-        <input type="text" class="form-control" placeholder="Search" class="searchBar" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="inputFormatter"/>
+        <input type="text" class="form-control" placeholder="Search" class="searchBar" [style.width]="isDesktop ? '12.5vw' : '50vw'" [class]="isDesktop ? 'inputDesktop' : ''" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="inputFormatter"/>
       </li>
     </ul>
     

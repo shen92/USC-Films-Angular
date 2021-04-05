@@ -2,13 +2,33 @@
   color: #CFD3DB;
 }
 
-.mediaTitle {
-  margin-top: 0.5vh;
-  line-height: 1.15;
-  font-size: 5em;
+.contentMarginDesktop {
+  margin-top: 8vh;
 }
 
-.mediaTagLine {
+.contentMarginMobile {
+  margin-top: 4vh;
+}
+
+.mediaTitleDesktop {
+  margin-top: 0.5vh;
+  line-height: 1.15;
+  font-size: 3.75rem;
+}
+
+.mediaTitleMobile {
+  margin-top: 0.5vh;
+  line-height: 1.15;
+  font-size: 3rem;
+  margin-top: 2vh;
+}
+
+.mediaTagLineDesktop {
+  font-size: 1.5rem;
+  margin: 1.5vh 0;
+}
+
+.mediaTagLineMobile {
   font-size: 1.5rem;
   margin: 1.5vh 0;
 }

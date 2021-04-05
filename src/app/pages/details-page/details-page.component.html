@@ -1,5 +1,5 @@
-<div class="pageContaienr" (window:resize)="onResize($event)">
-  <app-nav-bar [activatedRoute]="activatedRoute"></app-nav-bar>
+<div class="pageContaienr">
+  <app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
   <ng-template #content let-modal>
     <div class="modal-header text-dark">
       <h4 class="modal-title" id="modal-basic-title">Name</h4>
@@ -16,16 +16,16 @@
   </ng-template>
 
   <div class="pageBodyContainer">
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-9">
+    <div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
+      <div class="row justify-content-center" style="margin: auto;">
+        <div class="col-sm-11 col-md-9">
           <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-8" style="padding: 0">
+            <div class="col-sm-12 col-md-8">
               <app-video-player [key]="key" [videoWidth]="videoWidth" [videoHeight]="videoHeight"></app-video-player>
-            </div>
-            <div class="col-sm-12 col-md-4" style="padding: 0px 1vw">
-              <div class="mediaTitle">{{title}}</div>
-              <div class="mediaTagLine font-italic mediaTextGrey">{{tagline}}</div>
+              </div>
+            <div class="col-sm-12 col-md-4" style="padding: none;">
+              <div [class]="isDesktop? 'mediaTitleDesktop' : 'mediaTitleMobile'">{{title}}</div>
+              <div [class]="isDesktop ? 'mediaTagLineDesktop' : 'mediaTagLineMobile'" class="font-italic mediaTextGrey">{{tagline}}</div>
               <div class="mediaMeta mediaTextGrey">
                 <div style="margin-right: 8px;">{{getYear()}}</div>
                 <div style="margin-right: 8px;">{{getRate()}}</div>
