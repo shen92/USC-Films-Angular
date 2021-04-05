@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,6 @@ export class SwimmingPoolComponent implements OnChanges {
 
   public groups: any[] = [];
   public elements: number = 6;
-  public page: number = 0;
 
   constructor(private router: Router) { }
 

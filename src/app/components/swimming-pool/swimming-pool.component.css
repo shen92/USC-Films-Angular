@@ -1,9 +1,9 @@
 .swimmingPoolDesktop {
-  height: 40vh;
+  height: 45vh;
 }
 
 .swimmingPoolMobile {
-  height: 50vh;
+  height: 60vh;
 }
 
 .swimmingPoolTitleDesktop {
@@ -99,13 +99,10 @@ img {
 }
 
 :host ::ng-deep .carousel-control-prev {
-  left: -10vw;
+  left: -7vw;
 }
 
 :host ::ng-deep .carousel-control-next {
-  right: -10vw;
+  right: -7vw;
 }
 
-:host ::ng-deep .carousel-indicators {
-  bottom: -3vh;
-}

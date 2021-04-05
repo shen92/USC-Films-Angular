@@ -87,6 +87,7 @@
               </div>
             </div> -->
           </div>
+          
           <div>
             <div>Reviews<span>{{reviewsCount}}</span></div>
             <div class="card" *ngFor="let review of reviews" >
@@ -100,10 +101,11 @@
               </div>
             </div>
           </div>
+          
+          <app-swimming-pool [title]="recommendationsTitle" [data]="recommendations" [isDesktop]="isDesktop"></app-swimming-pool>
+          <app-swimming-pool [title]="similarsTitle" [data]="similars" [isDesktop]="isDesktop"></app-swimming-pool>
         </div>
-        <app-swimming-pool [title]="recommendationsTitle" [data]="recommendations" [isDesktop]="isDesktop"></app-swimming-pool>
-        <app-swimming-pool [title]="similarsTitle" [data]="similars" [isDesktop]="isDesktop"></app-swimming-pool>
-        </div>
+
       </div>
     </div>
       
