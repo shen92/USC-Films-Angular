@@ -1,22 +1,19 @@
- <div class="pageContainer">
-  <app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
-  <div class="pageBodyContainer">
-    <div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
-      <div class="row justify-content-center" style="margin: auto;">
-        <div class="col-sm-11 col-md-9">
-          <app-poster-carousel [currentlyPlayingMovies]="currentlyPlayingMovies" [isDesktop]="isDesktop"></app-poster-carousel>
-        </div>
-        <div class="col-sm-11 col-md-10">
-          <app-swimming-pool [title]="'Continue Watching'" [data]="watchList" [isDesktop]="isDesktop"></app-swimming-pool>
-          <app-swimming-pool [title]="'Popular Movies'" [data]="popularMovies" [isDesktop]="isDesktop"></app-swimming-pool>
-          <app-swimming-pool [title]="'Top Rated Movies'" [data]="topRatedMovies" [isDesktop]="isDesktop"></app-swimming-pool>
-          <app-swimming-pool [title]="'Trending Movies'"[data]="trendingMovies" [isDesktop]="isDesktop"></app-swimming-pool>
-          <app-swimming-pool [title]="'Popular TV Shows'"[data]="popularTvShows" [isDesktop]="isDesktop"></app-swimming-pool>
-          <app-swimming-pool [title]="'Top Rated TV Shows'"[data]="topRatedTvShows" [isDesktop]="isDesktop"></app-swimming-pool>
-          <app-swimming-pool [title]="'Trending TV Shows'"[data]="trendingTvShows" [isDesktop]="isDesktop"></app-swimming-pool>
-        </div>
-      </div>
+<app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
+<div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'" >
+  <div class="row justify-content-center" style="margin: auto;" >
+    <div class="col-sm-11 col-md-9">
+      <app-poster-carousel [currentlyPlayingMovies]="currentlyPlayingMovies" [isDesktop]="isDesktop"></app-poster-carousel>
+    </div>
+    <div class="col-sm-11 col-md-10">
+      <app-swimming-pool [title]="'Continue Watching'" [data]="watchList" [isDesktop]="isDesktop"></app-swimming-pool>
+      <app-swimming-pool [title]="'Popular Movies'" [data]="popularMovies" [isDesktop]="isDesktop"></app-swimming-pool>
+      <app-swimming-pool [title]="'Top Rated Movies'" [data]="topRatedMovies" [isDesktop]="isDesktop"></app-swimming-pool>
+      <app-swimming-pool [title]="'Trending Movies'"[data]="trendingMovies" [isDesktop]="isDesktop"></app-swimming-pool>
+      <app-swimming-pool [title]="'Popular TV Shows'"[data]="popularTvShows" [isDesktop]="isDesktop"></app-swimming-pool>
+      <app-swimming-pool [title]="'Top Rated TV Shows'"[data]="topRatedTvShows" [isDesktop]="isDesktop"></app-swimming-pool>
+      <app-swimming-pool [title]="'Trending TV Shows'"[data]="trendingTvShows" [isDesktop]="isDesktop"></app-swimming-pool>
     </div>
   </div>
-<app-footer></app-footer>
 </div>
+
+

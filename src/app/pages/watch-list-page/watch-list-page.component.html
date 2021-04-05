@@ -1,29 +1,25 @@
 
-<div class="pageContainer">
-  <app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
-  <div class="pageBodyContainer centerContent">
-    <div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
-      <div class="row justify-content-center" style="margin: auto;">
-        <div class="col-sm-11 col-md-9">
-          <div *ngIf="isEmpty" [class]="isDesktop ? 'messageDesktop' : 'messageMobile'">No items found in Watchlist.</div>
-          <div *ngIf="!isEmpty" class="container-fluid" style="border: 1px solid red; height: 200px;">
+<app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
+<div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
+  <div class="row justify-content-center" style="margin: auto;">
+    <div class="col-sm-11 col-md-9">
 
-          <div *ngFor="let group of groups">
-            <div class="row justify-content-center" style="margin: auto;" >
-              <div class="col-2 itemContainerDesktop" *ngFor="let element of group" style="border: 1px solid white; height: 200px;">
-                <div class="imageContainerDesktop" *ngIf="!element.hasOwnProperty('placeholder')"  style="margin: auto;" (click)="onClick(element.id, element.media_type)">
-                  <img class="imageDesktop"  [src]="element.poster_path" [alt]="element.title">
-                </div>
-                <div *ngIf="!element.hasOwnProperty('placeholder')" class="carousel-caption captionContainerDesktop">
-                {{element.title}}
-                </div>
-              </div>
+      <div *ngIf="isEmpty" [class]="isDesktop ? 'messageDesktop' : 'messageMobile'">No items found in Watchlist.</div>
+      <div *ngIf="!isEmpty" class="container-fluid" style="border: 1px solid red; height: 200px;">
+
+      <div *ngFor="let group of groups">
+        <div class="row justify-content-center" style="margin: auto;" >
+          <div class="col-2 itemContainerDesktop" *ngFor="let element of group" style="border: 1px solid white; height: 200px;">
+            <div class="imageContainerDesktop" *ngIf="!element.hasOwnProperty('placeholder')"  style="margin: auto;" (click)="onClick(element.id, element.media_type)">
+              <img class="imageDesktop"  [src]="element.poster_path" [alt]="element.title">
+            </div>
+            <div *ngIf="!element.hasOwnProperty('placeholder')" class="carousel-caption captionContainerDesktop">
+            {{element.title}}
             </div>
           </div>
-          </div> 
         </div>
       </div>
+      
     </div>
   </div>
-  <app-footer></app-footer>
 </div>

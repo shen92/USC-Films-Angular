@@ -76,13 +76,10 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       this.mediaType = mediaType;
       this.recommendationsTitle = `Recommended ${mediaType === 'movie' ? 'Movies' : 'TV Shows'}`
       this.similarsTitle = `Similar ${mediaType === 'movie' ? 'Movies' : 'TV Shows'}`
-      this.detailsPageService.fetchRecommendedMedia(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
-        this.recommendations = response.data;
-      });
-      this.detailsPageService.fetchSimilarMedia(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
-        this.similars = response.data;
-      });
-      
+      const watchList = JSON.parse(window.localStorage.getItem('watchList'));
+        const isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
+        const currentIndex = watchList.findIndex(item => item.id === this.id);
+        this.buttonLabel = isInWatchList ?  'Remove from Watchlist' : 'Add to Watchlist';
       this.detailsPageService.fetchMediaDetails(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const details = response.data;
         this.title = details.title;
@@ -100,17 +97,11 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
         this.genres = details.genres;
         this.spokenLanguages = details.spoken_languages;
         this.description = details.overview;
-        const watchList = JSON.parse(window.localStorage.getItem('watchList'));
-        const isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
-        const currentIndex = watchList.findIndex(item => item.id === this.id)
         if(isInWatchList) {
           watchList.splice(currentIndex, 1);
         } 
         watchList.splice(0, 0, details);
         window.localStorage.setItem('watchList', JSON.stringify(watchList));
-        this.buttonLabel = isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
-        this.alertMessage = isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
-        this.alertClass = isInWatchList ? 'danger' : 'success';
       });
       
       this.detailsPageService.fetchMediaCasts(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
@@ -120,12 +111,17 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
         this.reviews = response.data;
         this.reviewsCount = response.count;
       });
+      this.detailsPageService.fetchRecommendedMedia(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
+        this.recommendations = response.data;
+      });
+      this.detailsPageService.fetchSimilarMedia(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
+        this.similars = response.data;
+      });
       
     });
   }
 
   ngOnDestroy(): void {
-    
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
@@ -150,8 +146,8 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
     this.alert = false;
     let watchList = JSON.parse(window.localStorage.getItem('watchList'));
     let isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
-    this.alertMessage = isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
-    this.alertClass = isInWatchList ? 'danger' : 'success';
+    this.alertMessage = isInWatchList ? 'Added to watchlist.' : 'Removed from watchlist.';
+    this.alertClass = isInWatchList ? 'success' : 'danger';
   }
 
   onCardClick(content, id): void {

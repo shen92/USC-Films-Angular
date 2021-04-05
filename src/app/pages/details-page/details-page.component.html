@@ -1,6 +1,5 @@
-<div class="pageContaienr">
-  <app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
-  <ng-template #content let-modal>
+<app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
+<ng-template #content let-modal>
     <div class="modal-header text-dark">
       <h4 class="modal-title" id="modal-basic-title">Name</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -13,102 +12,100 @@
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
     </div>
-  </ng-template>
+</ng-template>
 
-  <div class="pageBodyContainer">
-    <div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
-      <div class="row justify-content-center" style="margin: auto;">
-        
-        <div class="col-sm-11 col-md-9">
-          <div class="row justify-content-center">
+  
+<div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
+  <div class="row justify-content-center" style="margin: auto;">
 
-            <div class="col-sm-12 col-md-8">
-              <app-video-player [key]="key" [videoWidth]="videoWidth" [videoHeight]="videoHeight"></app-video-player>
-            </div>
+    <div class="col-sm-11 col-md-9">
+      <div class="row justify-content-center">
 
-            <div class="col-sm-12 col-md-4" style="padding: none;">
-              <div [class]="isDesktop? 'mediaTitleDesktop' : 'mediaTitleMobile'">
-                {{title}}
-              </div>
-              <div [class]="isDesktop ? 'mediaTagLineDesktop' : 'mediaTagLineMobile'" class="font-italic mediaTextGrey">
-                {{tagline}}
-              </div>
-              <div [class]="isDesktop ? 'mediaMetaDesktop' : 'mediaMetaMobile' "class="mediaMeta mediaTextGrey">
-                <div style="margin-right: 8px;">{{getYear()}}</div>
-                <div style="margin-right: 8px;">{{getRate()}}</div>
-                <div>{{getDuration()}}</div>
-              </div>
-              <div [class]="isDesktop ? 'mediaGenresDesktop' : 'mediaGenresMobile'" class="mediaTextGrey">
-                <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Genres :</span> {{getGenres()}}
-              </div>
-              <div [class]="isDesktop ? 'mediaSpokenLanguagesDesktop' : 'mediaSpokenLanguagesMobile'"  class="mediaTextGrey">
-                <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
-              <div class="buttonContainer">
-                <button class="btn btn-primary btn-lg" (click)="onAddButtonClick()">{{buttonLabel}}</button>
-              </div>
-              <div class="alertContainer">
-                <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()" [class]="isDesktop ? 'alertDesktop' : ''">{{alertMessage}}</ngb-alert>
-              </div>
-            </div>
-          </div>
-
-          <div [class]="isDesktop ? 'sectionDesktop' : ''" style="margin: auto;">
-            <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
-              Description
-            </div>
-            <div [class]="isDesktop ? 'descriptionDesktop' : 'descriptionMobile'"class="mediaTextGrey">
-              {{description}}
-            </div>
-          </div>
-
-          <div [class]="isDesktop ? 'sectionDesktop' : ''" [style.marginTop]="isDesktop ? '4vh' : ''" style="margin: auto;">
-            <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
-                Share
-            </div>
-            <div style="display: flex; gap: 0.8vw">
-              <a class="twitter-share-button" target="_blank" [href]="twitterHref">
-                <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-twitter"></i>
-              </a>
-              <a target="_blank" [href]="facebookHref" >
-                  <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-facebook-square socialMedia" style="color: #0e2cff;"></i>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <div>Full Cast and Crew</div>
-            <!-- <div style="width: 100vw; white-space: nowrap; overflow: auto">
-              <div *ngFor="let cast of casts" class="card" style="width: 15vw; display: inline-block;" (click)="onCardClick(content, cast.id)">
-                <img class="card-img-top" [src]="cast.profile_path" alt="Card image cap" >
-                <div class="card-body" style="color: black;">
-                  <div>{{cast.name}}</div>
-                  <div>AS</div>
-                  <div>{{cast.character}}</div>
-                </div>
-              </div>
-            </div> -->
-          </div>
-          
-          <div>
-            <div>Reviews<span>{{reviewsCount}}</span></div>
-            <div class="card" *ngFor="let review of reviews" >
-              <div class="card-body" style="display: flex; color: black;">
-                <div>
-                  <img [src]="review.avatar_path == null ? '' : review.avatar_path" style="width: 5vw;">
-                </div>
-                <div class="reviewContent">
-                  {{review.content}}
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <app-swimming-pool [title]="recommendationsTitle" [data]="recommendations" [isDesktop]="isDesktop"></app-swimming-pool>
-          <app-swimming-pool [title]="similarsTitle" [data]="similars" [isDesktop]="isDesktop"></app-swimming-pool>
+        <div class="col-sm-12 col-md-8">
+          <app-video-player [key]="key" [videoWidth]="videoWidth" [videoHeight]="videoHeight"></app-video-player>
         </div>
 
+        <div class="col-sm-12 col-md-4" style="padding: none;">
+          <div [class]="isDesktop? 'mediaTitleDesktop' : 'mediaTitleMobile'">
+            {{title}}
+          </div>
+          <div [class]="isDesktop ? 'mediaTagLineDesktop' : 'mediaTagLineMobile'" class="font-italic mediaTextGrey">
+            {{tagline}}
+          </div>
+          <div [class]="isDesktop ? 'mediaMetaDesktop' : 'mediaMetaMobile' "class="mediaMeta mediaTextGrey">
+            <div style="margin-right: 8px;">{{getYear()}}</div>
+            <div style="margin-right: 8px;">{{getRate()}}</div>
+            <div>{{getDuration()}}</div>
+          </div>
+          <div [class]="isDesktop ? 'mediaGenresDesktop' : 'mediaGenresMobile'" class="mediaTextGrey">
+            <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Genres :</span> {{getGenres()}}
+          </div>
+          <div [class]="isDesktop ? 'mediaSpokenLanguagesDesktop' : 'mediaSpokenLanguagesMobile'"  class="mediaTextGrey">
+            <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
+          <div class="buttonContainer">
+            <button class="btn btn-primary btn-lg" (click)="onAddButtonClick()">{{buttonLabel}}</button>
+          </div>
+          <div class="alertContainer">
+            <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()" [class]="isDesktop ? 'alertDesktop' : ''">{{alertMessage}}</ngb-alert>
+          </div>
+        </div>
       </div>
+
+      <div [class]="isDesktop ? 'sectionDesktop' : ''" style="margin: auto;">
+        <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
+          Description
+        </div>
+        <div [class]="isDesktop ? 'descriptionDesktop' : 'descriptionMobile'"class="mediaTextGrey">
+          {{description}}
+        </div>
+      </div>
+
+      <div [class]="isDesktop ? 'sectionDesktop' : ''" [style.marginTop]="isDesktop ? '4vh' : ''" style="margin: auto;">
+        <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
+            Share
+        </div>
+        <div style="display: flex; gap: 0.8vw">
+          <a class="twitter-share-button" target="_blank" [href]="twitterHref">
+            <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-twitter"></i>
+          </a>
+          <a target="_blank" [href]="facebookHref" >
+              <i [class]="isDesktop ? 'shareDesktop' : 'shareMobile'" class="fab fa-facebook-square socialMedia" style="color: #0e2cff;"></i>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div>Full Cast and Crew</div>
+        <!-- <div style="width: 100vw; white-space: nowrap; overflow: auto">
+          <div *ngFor="let cast of casts" class="card" style="width: 15vw; display: inline-block;" (click)="onCardClick(content, cast.id)">
+            <img class="card-img-top" [src]="cast.profile_path" alt="Card image cap" >
+            <div class="card-body" style="color: black;">
+              <div>{{cast.name}}</div>
+              <div>AS</div>
+              <div>{{cast.character}}</div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      
+      <div>
+        <div>Reviews<span>{{reviewsCount}}</span></div>
+        <div class="card" *ngFor="let review of reviews" >
+          <div class="card-body" style="display: flex; color: black;">
+            <div>
+              <img [src]="review.avatar_path == null ? '' : review.avatar_path" style="width: 5vw;">
+            </div>
+            <div class="reviewContent">
+              {{review.content}}
+            </div>
+          </div>
+        </div>
     </div>
       
-  <app-footer></app-footer>
+    <app-swimming-pool [title]="recommendationsTitle" [data]="recommendations" [isDesktop]="isDesktop"></app-swimming-pool>
+    <app-swimming-pool [title]="similarsTitle" [data]="similars" [isDesktop]="isDesktop"></app-swimming-pool>
+  </div>
 </div>
+    
+    
+
