@@ -92,8 +92,8 @@
         <div [class]="isDesktop ? 'sectionTitleAltDesktop' : 'sectionTitleAltMobile'">
           Reviews<span class="mediaTextGrey" style="margin-left: 1.25vw;">{{reviewsCount}}</span>
         </div>
-        <div class="card" *ngFor="let review of reviews" >
-          <div class="card-body" style="display: flex; color: black;">
+        <div class="card" *ngFor="let review of reviews" [class]="isDesktop ? 'reviewCardDesktop' : 'reviewCardMobile'">
+          <div class="card-body"  style="display: flex; color: black;">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-12 col-md-2">
@@ -114,11 +114,18 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-12">
-                    {{getReviewTime(review.created_at)}}
+                  <div class="row">
+                    <div class="col-sm-12">
+                      Written by {{review.author}} on {{getReviewTime(review.created_at)}}
+                    </div>
                   </div>
-                  <div class="reviewContent">
-                    {{review.content}}
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="reviewClamp">
+                        {{review.content}}
+                      </div>
+                      <a>Read the rest</a>
+                    </div>
                   </div>
                 </div>
               </div>

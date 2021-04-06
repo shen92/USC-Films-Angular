@@ -133,8 +133,18 @@
   font-size: 1.5rem;
 }
 
+.reviewCardDesktop {
+  border-radius: 1vh;
+  margin-bottom: 2vh;
+  padding: 1vh 1vw;
+}
+
+.reviewCardMobile {
+
+}
+
 .reviewTitleDesktop {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .reviewTitleMobile {
@@ -178,6 +188,10 @@
 }
 
 .reviewContent {
+  
+}
+
+.reviewClamp {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
