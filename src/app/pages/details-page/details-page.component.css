@@ -135,12 +135,14 @@
 
 .reviewCardDesktop {
   border-radius: 1vh;
-  margin-bottom: 2vh;
+  margin-top: 2vh;
   padding: 1vh 1vw;
 }
 
 .reviewCardMobile {
-
+  border-radius: 1vh;
+  margin-top: 2vh;
+  padding: 1vh 1vw;
 }
 
 .reviewTitleDesktop {
@@ -162,6 +164,7 @@
 .ratingDesktop {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4vw;
   background-color: black;
   color: white;
@@ -174,9 +177,11 @@
 }
 
 .ratingMobile {
+  width: 12vw;
   display: flex;
   align-items: center;
-  gap: 0.2vw;
+  justify-content: center;
+  gap: 0.8vw;
   background-color: black;
   color: white;
   padding: 0.5vh 0.5vw;
@@ -184,19 +189,39 @@
 }
 
 .ratingMobile span {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .reviewTimeDesktop{
-  margin-top: 2vh;
+  margin-top: 4vh;
+  font-size: 1.25rem;
 }
 
 .reviewTimeMobile {
 
 }
 
-.reviewContent {
-  
+.reviewContentDesktop {
+  margin-top: 2vh;
+  font-size: 1.25rem;
+}
+
+.reviewContentMobile {
+  margin-top: 1vh;
+}
+
+.readMoreDesktop {
+  margin-top: 2vh;
+  font-size: 1.25rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.readMoreMobile {
+  margin-top: 1vh;
+  font-size: 1.25rem;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .reviewClamp {

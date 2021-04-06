@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 
 import { DetailsPageService } from 'src/app/services';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-details-page',
@@ -126,8 +127,9 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
-
-  onResize():void {
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(event): void {
     this.screenWidth = window.innerWidth;
     this.screenHeight = window.innerHeight;
     this.videoWidth = this.screenWidth > 1000 ? this.screenWidth * 0.45 : this.screenWidth * 0.85;

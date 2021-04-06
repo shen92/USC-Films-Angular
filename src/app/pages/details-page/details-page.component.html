@@ -123,10 +123,12 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="reviewClamp">
+                      <div class="reviewClamp" [class]="isDesktop ? 'reviewContentDesktop' : 'reviewContentMobile'">
                         {{review.content}}
                       </div>
-                      <a>Read the rest</a>
+                      <div [class]="isDesktop ? 'readMoreDesktop' : 'readMoreMobile'">
+                        <a target="_blank" [href]="review.url">Read the rest</a>
+                      </div>
                     </div>
                   </div>
                 </div>
