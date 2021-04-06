@@ -5,7 +5,7 @@
       <div  [class]="isDesktop ? 'messageDesktop' : 'messageMobile'">No items found in Watchlist.</div>
     </div>
 
-    <div *ngIf="!isEmpty" class="col-sm-11 col-md-9">
+    <div *ngIf="!isEmpty && isDesktop" class="col-sm-11 col-md-9">
       <div *ngFor="let group of groups">
         <div class="row justify-content-center" style="margin: auto; " >
           <div class="col-2" *ngFor="let element of group" style="margin: auto;">
@@ -15,6 +15,23 @@
                 <div class="carousel-caption captionContainerDesktop">
                   {{element.title}}
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!isEmpty && !isDesktop" class="col-sm-11 col-md-9">
+      <div *ngFor="let element of watchList">
+        <div class="row justify-content-center" style="margin: auto;">
+          <div class="col-12" style="margin: auto;">
+            <div class="itemContainerMobile">
+              <div class="imageContainerMobile" style="margin: auto;" (click)="onClick(element.id, element.media_type)">
+                <img class="imageMobile" [src]="element.poster_path" [alt]="element.title" >
+              </div>
+              <div class="carousel-caption captionContainerMobile">
+                {{element.title}}
               </div>
             </div>
           </div>
