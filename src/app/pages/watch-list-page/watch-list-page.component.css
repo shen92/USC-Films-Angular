@@ -25,7 +25,6 @@
 }
 
 .itemContainerDesktop {
-  padding: 1vh 2vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,12 +35,11 @@
   align-items: center;
   justify-content: center;
   background-image: none;
-  transition: background-color 0.25s;
+  transition: background-image 0.25s;
   cursor: pointer;
-  z-index: 10;
 }
 
-.itemContainerDesktop:hover .imageContainerDesktop {
+.itemContainerDesktop:hover {
   background-image: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(255,255,255,0) 100%);
 }
 
@@ -90,13 +88,14 @@
 .imageMobile{
   width: auto;
   height: 54vh;
-  z-index: -100;
 }
 
 .captionContainerMobile {
   display: flex;
   text-align: left;
 }
+
+
 
 
 

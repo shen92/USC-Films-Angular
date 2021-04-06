@@ -1,6 +1,6 @@
-<div class="container-fluid" [class]="isDesktop ? 'swimmingPoolDesktop' : 'swimmingPoolMobie'" *ngIf="data.length !== 0">
+<div *ngIf="data.length !== 0" class="container-fluid" [class]="isDesktop ? 'swimmingPoolDesktop' : 'swimmingPoolMobile'" >
   <div class="row justify-content-center" style="margin: auto;">
-    <div class="col-12" >
+    <div class="col-12"  >
 
       <div [class]="isDesktop ? 'swimmingPoolTitleDesktop' : 'swimmingPoolTitleMobile'">
         {{title}}

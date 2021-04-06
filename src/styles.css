@@ -8,6 +8,7 @@ html, body, app-root{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+
 app-root {
   display: flex;
   flex-direction: column;

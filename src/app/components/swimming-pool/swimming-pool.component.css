@@ -3,7 +3,7 @@
 }
 
 .swimmingPoolMobile {
-  height: 60vh;
+  height: 75vh;
 }
 
 .swimmingPoolTitleDesktop {
@@ -34,7 +34,7 @@
   align-items: center;
   justify-content: center;
   background-image: none;
-  transition: background-color 0.25s;
+  transition: background-image 0.25s;
   cursor: pointer;
 }
 
