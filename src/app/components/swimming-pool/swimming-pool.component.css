@@ -1,5 +1,6 @@
 .swimmingPoolDesktop {
-  height: 45vh;
+  height: 42vh;
+  border: 1px solid red;
 }
 
 .swimmingPoolMobile {
@@ -108,3 +109,6 @@ img {
   right: -7vw;
 }
 
+:host ::ng-deep .carousel-indicators {
+  bottom: -4vw;
+}
