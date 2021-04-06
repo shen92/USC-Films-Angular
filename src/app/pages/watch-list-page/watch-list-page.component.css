@@ -28,6 +28,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 30vh;
+  transform: scale(0.9);
+  transition: transform 0.25s;
+}
+
+.itemContainerDesktop:hover {
+  transform: scale(1.0);
 }
 
 .imageContainerDesktop {
@@ -39,15 +46,18 @@
   cursor: pointer;
 }
 
-.itemContainerDesktop:hover {
+.imageContainerDesktop:hover {
   background-image: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(255,255,255,0) 100%);
 }
 
 .imageDesktop{
-  transform: scale(0.9);
   width: auto;
-  height: 32vh;
-  transition: transform 0.25s;
+  height: 30vh; 
+  transform: scale(0.9);
+}
+
+img {
+  z-index: -100;
 }
 
 .itemContainerDesktop:hover .imageDesktop {
@@ -58,42 +68,13 @@
   display: none;
   text-align: left;
   transition: display 0.25s;
+  bottom: 0vh;
 }
 
 .itemContainerDesktop:hover .captionContainerDesktop {
   display: flex;
 }
 
-.itemContainerMobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
-  transform: scale(0.9);
-  transition: transform 0.25s;
-}
-
-.itemContainerMobile:hover {
-  transform: scale(0.96);
-}
-
-.imageContainerMobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(255,255,255,0) 100%);
-  cursor: pointer;
-}
-
-.imageMobile{
-  width: auto;
-  height: 54vh;
-}
-
-.captionContainerMobile {
-  display: flex;
-  text-align: left;
-}
 
 
 
