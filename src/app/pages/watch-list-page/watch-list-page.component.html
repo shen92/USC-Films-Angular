@@ -10,8 +10,8 @@
         <div class="row justify-content-center" style="margin: auto; " >
           <div class="col-2" *ngFor="let element of group" style="margin: auto;">
             <div class="itemContainerDesktop">
-              <div class="imageContainerDesktop" *ngIf="!element.hasOwnProperty('placeholder')">
-                <img class="imageDesktop" [src]="element.poster_path" [alt]="element.title" (click)="onClick(element.id, element.media_type)">
+              <div class="imageContainerDesktop" *ngIf="!element.hasOwnProperty('placeholder')" (click)="onClick(element.id, element.media_type)">
+                <img class="imageDesktop" [src]="element.poster_path" [alt]="element.title" >
                 <div class="carousel-caption captionContainerDesktop">
                   {{element.title}}
                 </div>
