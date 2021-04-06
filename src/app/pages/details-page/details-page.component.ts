@@ -46,11 +46,12 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   public alertMessage: string;
   public alertClass: string;
 
-  public reviewerPlaceHolder = 'src/assets/img/reviewer-placeholder.jpg' //TODO
-
   public youtubeHref: string = "";
   public twitterHref: string = "";
   public facebookHref: string = "";
+
+
+  public reviewerPlaceholder: string = "assets/img/reviewer-placeholder.jpg";
 
   public modalOpen: boolean = false;
   public castId: number = -1;
@@ -179,6 +180,31 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   getSpokenLanguages(): string{
     return this.spokenLanguages.map(language => language.name).join(', ')
   }
+
+  getReviewTime(unixTime): string {
+    const result: string = `${this.unixTimeToYMD(unixTime)} ${this.unixTimeToTime(unixTime)}`
+    return result
+  }
+
+  unixTimeToYMD = (unixTime) => {
+    const date = new Date(unixTime);
+    const dateStr = date.toLocaleDateString("en-us", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    });
+    return dateStr;
+  };
+  
+  unixTimeToTime = (unixTime) => {
+    const date = new Date(unixTime);
+    const dateStr = date.toLocaleTimeString("en-us", {
+      hour: "numeric",
+      minute: "2-digit",
+      second: "2-digit"
+    });
+    return dateStr;
+  };
 
   
 }

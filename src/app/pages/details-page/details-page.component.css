@@ -125,6 +125,57 @@
   font-size: 1.75rem;
 }
 
+.sectionTitleAltDesktop {
+  font-size: 2.5rem;
+}
+
+.sectionTitleAltMobile {
+  font-size: 1.5rem;
+}
+
+.reviewTitleDesktop {
+  font-size: 1.5rem;
+}
+
+.reviewTitleMobile {
+  font-size: 1.25rem;
+}
+
+.reviewSubtitleDesktop {
+
+}
+
+.reviewSubtitleMobile {
+
+}
+
+.ratingDesktop {
+  display: flex;
+  align-items: center;
+  gap: 0.4vw;
+  background-color: black;
+  color: white;
+  padding: 0.5vh 0.5vw;
+  border-radius: 2vh;
+}
+
+.ratingDesktop span {
+  font-size: 1.15rem;
+}
+
+.ratingMobile {
+  display: flex;
+  align-items: center;
+  gap: 0.2vw;
+  background-color: black;
+  color: white;
+  padding: 0.5vh 0.5vw;
+  border-radius: 2vh;
+}
+
+.ratingMobile span {
+  font-size: 1.5rem;
+}
 
 .reviewContent {
   display: -webkit-box;

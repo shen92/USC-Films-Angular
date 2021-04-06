@@ -75,7 +75,7 @@
       </div>
 
       <div>
-        <div>Full Cast and Crew</div>
+        <div [class]="isDesktop ? 'sectionTitleAltDesktop' : 'sectionTitleAltMobile'">Full Cast and Crew</div>
         <!-- <div style="width: 100vw; white-space: nowrap; overflow: auto">
           <div *ngFor="let cast of casts" class="card" style="width: 15vw; display: inline-block;" (click)="onCardClick(content, cast.id)">
             <img class="card-img-top" [src]="cast.profile_path" alt="Card image cap" >
@@ -89,14 +89,39 @@
       </div>
       
       <div>
-        <div>Reviews<span>{{reviewsCount}}</span></div>
+        <div [class]="isDesktop ? 'sectionTitleAltDesktop' : 'sectionTitleAltMobile'">
+          Reviews<span class="mediaTextGrey" style="margin-left: 1.25vw;">{{reviewsCount}}</span>
+        </div>
         <div class="card" *ngFor="let review of reviews" >
           <div class="card-body" style="display: flex; color: black;">
-            <div>
-              <img [src]="review.avatar_path == null ? '' : review.avatar_path" style="width: 5vw;">
-            </div>
-            <div class="reviewContent">
-              {{review.content}}
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-12 col-md-2">
+                  <div>
+                    <img [src]="review.avatar_path == null ? reviewerPlaceholder : review.avatar_path" style="width: 5vw;">
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-10">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-auto">
+                      <div [class]="isDesktop ? 'reviewTitleDesktop' : 'reviewTitleMobile'">
+                        A review created by {{review.author}}
+                      </div>
+                    </div>
+                    <div class="col-sm-12 col-md-auto">
+                      <div [class]="isDesktop ? 'ratingDesktop' : 'ratingMobile'">
+                        <span>★</span>{{review.rating}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    {{getReviewTime(review.created_at)}}
+                  </div>
+                  <div class="reviewContent">
+                    {{review.content}}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
