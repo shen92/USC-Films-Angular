@@ -23,7 +23,6 @@
 }
 
 .itemContainerDesktop {
-  padding: 1vh 2vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,14 +37,11 @@
   cursor: pointer;
 }
 
-.itemContainerDesktop:hover .imageContainerDesktop {
-  background-image: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(255,255,255,0) 100%);
-}
-
 .imageDesktop{
-  transform: scale(0.9);
   width: auto;
-  height: 32vh;
+  height: 30vh;
+  transform: scale(0.9);
+  object-fit: contain;
   transition: transform 0.25s;
 }
 
@@ -53,10 +49,16 @@
   transform: scale(1.0);
 }
 
+.itemContainerDesktop:hover .imageContainerDesktop {
+  background-image: linear-gradient(0deg, rgba(0,0,0,1) 10%, rgba(255,255,255,0) 100%);
+}
+
+
 .captionContainerDesktop {
   display: none;
   text-align: left;
   transition: display 0.25s;
+  bottom: 0vh;
 }
 
 .itemContainerDesktop:hover .captionContainerDesktop {

@@ -1,20 +1,24 @@
 <div *ngIf="data.length !== 0" class="container-fluid" [class]="isDesktop ? 'swimmingPoolDesktop' : 'swimmingPoolMobile'" >
   <div class="row justify-content-center" style="margin: auto;">
-    <div class="col-12"  >
 
+    <div class="col-12" >
       <div [class]="isDesktop ? 'swimmingPoolTitleDesktop' : 'swimmingPoolTitleMobile'">
         {{title}}
       </div>
-    
+    </div>
+
+    <div class="col-12" >
       <ngb-carousel *ngIf="isDesktop" id="swimming-pool-carousel" [interval]="0" [showNavigationIndicators]="isDesktop && groups.length > 1">
         <ng-template ngbSlide *ngFor="let group of groups">
           <div class="row justify-content-center" style="margin: auto;" >
-            <div class="col-2 itemContainerDesktop" *ngFor="let element of group" style="margin: auto;">
-              <div class="imageContainerDesktop" *ngIf="!element.hasOwnProperty('placeholder')"  style="margin: auto;" (click)="onClick(element.id, element.media_type)">
-                <img class="imageDesktop"  [src]="element.poster_path" [alt]="element.title">
-              </div>
-              <div *ngIf="!element.hasOwnProperty('placeholder')" class="carousel-caption captionContainerDesktop">
-              {{element.title}}
+            <div class="col-2" *ngFor="let element of group" style="margin: auto;">
+              <div class="itemContainerDesktop">
+                <div class="imageContainerDesktop" (click)="onClick(element.id, element.media_type)">
+                  <img *ngIf="!element.hasOwnProperty('placeholder')" class="imageDesktop" [src]="element.poster_path" [alt]="element.title" >
+                </div>
+                <div class="carousel-caption captionContainerDesktop">
+                  {{element.title}}
+                </div>
               </div>
             </div>
           </div>
@@ -26,7 +30,7 @@
           <div class="row justify-content-center" style="margin: auto;">
             <div class="col-12 itemContainerMobile" style="margin: auto;">
                 <div class="imageContainerMobile" style="margin: auto;" (click)="onClick(element.id, element.media_type)">
-                  <img class="imageMobile" *ngIf="!element.hasOwnProperty('placeholder')" [src]="element.poster_path" [alt]="element.title" >
+                  <img class="imageMobile" [src]="element.poster_path" [alt]="element.title" >
                   <div class="carousel-caption captionContainerMobile">
                     {{element.title}}
                   </div>
@@ -35,8 +39,10 @@
           </div>
         </ng-template>
       </ngb-carousel>
-
     </div>
+    
+      
+
   </div>
   
 </div>
