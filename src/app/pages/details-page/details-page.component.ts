@@ -66,7 +66,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       this.isDesktop = result.matches;
       this.screenWidth = window.innerWidth;
       this.screenHeight = window.innerHeight;
-      this.videoWidth = this.isDesktop ? this.screenWidth * 0.45 : this.screenWidth * 0.875;
+      this.videoWidth = this.isDesktop ? this.screenWidth * 0.45 : this.screenWidth * 0.85;
       this.videoHeight = this.isDesktop ? this.screenHeight * 0.5 : this.screenHeight * 0.3;
     });
     this.route.paramMap.subscribe((params: ParamMap) => {

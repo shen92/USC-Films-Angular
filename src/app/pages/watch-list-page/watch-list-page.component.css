@@ -60,12 +60,6 @@
   transform: scale(1.0);
 }
 
-img {
-  z-index: -100;
-}
-
-
-
 .captionContainerDesktop {
   display: none;
   text-align: left;
@@ -75,6 +69,10 @@ img {
 
 .itemContainerDesktop:hover .captionContainerDesktop {
   display: flex;
+}
+
+img {
+  z-index: -100;
 }
 
 
