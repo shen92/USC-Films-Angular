@@ -114,5 +114,5 @@ img {
 }
 
 :host ::ng-deep .carousel-indicators {
-  bottom: -4vw;
+  bottom: -3vw;
 }
