@@ -67,8 +67,8 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       this.isDesktop = result.matches;
       this.screenWidth = window.innerWidth;
       this.screenHeight = window.innerHeight;
-      this.videoWidth = this.isDesktop ? this.screenWidth * 0.45 : this.screenWidth * 0.85;
-      this.videoHeight = this.isDesktop ? this.screenHeight * 0.5 : this.screenHeight * 0.3;
+      this.videoWidth = result.matches ? this.screenWidth * 0.45 : this.screenWidth * 0.85;
+      this.videoHeight = result.matches ? this.screenHeight * 0.5 : this.screenHeight * 0.3;
     });
     this.route.paramMap.subscribe((params: ParamMap) => {
       const id = parseInt(params.get('id'), 10);
@@ -125,6 +125,13 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
+  }
+
+  onResize():void {
+    this.screenWidth = window.innerWidth;
+    this.screenHeight = window.innerHeight;
+    this.videoWidth = this.screenWidth > 1000 ? this.screenWidth * 0.45 : this.screenWidth * 0.85;
+    this.videoHeight = this.screenWidth > 1000 ? this.screenHeight * 0.5 : this.screenHeight * 0.3;
   }
 
   onAddButtonClick(): void {

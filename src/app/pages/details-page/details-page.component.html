@@ -115,8 +115,10 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-sm-12">
-                      Written by {{review.author}} on {{getReviewTime(review.created_at)}}
+                    <div class="col-sm-12" >
+                      <div class="mediaTextGrey" [class]="isDesktop ? 'reviewTimeDesktop' : 'reviewTimeMobile'">
+                        Written by {{review.author}} on {{getReviewTime(review.created_at)}}
+                      </div>
                     </div>
                   </div>
                   <div class="row">
