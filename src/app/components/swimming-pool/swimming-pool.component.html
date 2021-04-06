@@ -15,9 +15,9 @@
               <div class="itemContainerDesktop">
                 <div class="imageContainerDesktop" (click)="onClick(element.id, element.media_type)">
                   <img *ngIf="!element.hasOwnProperty('placeholder')" class="imageDesktop" [src]="element.poster_path" [alt]="element.title" >
-                </div>
-                <div class="carousel-caption captionContainerDesktop">
-                  {{element.title}}
+                  <div class="carousel-caption captionContainerDesktop">
+                    {{element.title}}
+                  </div>
                 </div>
               </div>
             </div>
