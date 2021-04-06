@@ -9,11 +9,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class AppComponent implements OnInit { 
   
   ngOnInit():void {
-    window.localStorage.setItem('watchList', JSON.stringify([]));
+    //window.localStorage.setItem('watchList', JSON.stringify([]));
   }
 
   ngOnDestroy(): void {
-    window.localStorage.clear();
+    //window.localStorage.clear();
   }
 
 }

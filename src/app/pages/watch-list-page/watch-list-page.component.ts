@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './watch-list-page.component.html',
   styleUrls: ['./watch-list-page.component.css']
 })
-export class WatchListPageComponent implements OnInit, OnChanges {
+export class WatchListPageComponent implements OnInit {
   public isDesktop: boolean;
   public activatedRoute: string = "mylist";
   public watchList: any[];
@@ -18,10 +18,6 @@ export class WatchListPageComponent implements OnInit, OnChanges {
   
   constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
 
-  ngOnChanges():void {
-    this.groupElements();
-  }
-
   ngOnInit(): void {
     this.breakpointObserver.observe([
       Breakpoints.WebLandscape
@@ -31,7 +27,8 @@ export class WatchListPageComponent implements OnInit, OnChanges {
     const watchList = JSON.parse(window.localStorage.getItem('watchList'));
     this.watchList = watchList;
     this.isEmpty = this.watchList.length === 0;
-  }
+    this.groupElements();
+  } 
 
   groupElements(): void {
     if(this.watchList == null || this.watchList.length === 0)
@@ -47,6 +44,7 @@ export class WatchListPageComponent implements OnInit, OnChanges {
       }
     }
     this.groups = result;
+    console.log(this.groups)
   }
 
   onClick(id: number, mediaType: string): void {

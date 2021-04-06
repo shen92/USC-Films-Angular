@@ -70,7 +70,6 @@ export class HomePageComponent implements OnInit, OnDestroy {
       this.trendingTvShows = result;
     });
     const watchList = JSON.parse(window.localStorage.getItem('watchList'));
-    console.log(watchList)
     this.watchList = watchList;
   }
 
