@@ -130,7 +130,7 @@
 }
 
 .sectionTitleAltMobile {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
 .reviewCardDesktop {
@@ -145,20 +145,29 @@
   padding: 1vh 1vw;
 }
 
+.reviewAvatarDesktop img {
+  vertical-align: middle;
+  width: 5vw;
+  height: 5vw;
+  border-radius: 5vw;
+}
+
+.reviewAvatarMobile img{
+  vertical-align: middle;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 10vh;
+  margin-left: 2vw;
+  margin-bottom: 3vh;
+}
+
 .reviewTitleDesktop {
   font-size: 1.75rem;
 }
 
 .reviewTitleMobile {
-  font-size: 1.25rem;
-}
-
-.reviewSubtitleDesktop {
-
-}
-
-.reviewSubtitleMobile {
-
+  line-height: 1.75rem;
+  font-size: 1.45rem;
 }
 
 .ratingDesktop {
@@ -172,24 +181,26 @@
   border-radius: 2vh;
 }
 
-.ratingDesktop span {
+.ratingDesktop .star {
   font-size: 1.15rem;
 }
 
 .ratingMobile {
   width: 12vw;
   display: flex;
-  align-items: center;
+  align-items: top;
   justify-content: center;
-  gap: 0.8vw;
+  gap: 1.25vw;
   background-color: black;
   color: white;
-  padding: 0.5vh 0.5vw;
-  border-radius: 2vh;
+  padding: 0.5vh 0.75vw;
+  border-radius: 3vh;
+  margin-top: 2vh;
 }
 
-.ratingMobile span {
-  font-size: 1rem;
+.ratingMobile .star {
+  line-height: 1rem;
+  font-size: 2rem;
 }
 
 .reviewTimeDesktop{
@@ -198,7 +209,8 @@
 }
 
 .reviewTimeMobile {
-
+  margin-top: 3vh;
+  font-size: 0.96rem;
 }
 
 .reviewContentDesktop {
@@ -207,7 +219,8 @@
 }
 
 .reviewContentMobile {
-  margin-top: 1vh;
+  margin-top: 2vh;
+  font-size: 0.96rem;
 }
 
 .readMoreDesktop {
@@ -218,8 +231,8 @@
 }
 
 .readMoreMobile {
-  margin-top: 1vh;
-  font-size: 1.25rem;
+  margin-top: 2vh;
+  font-size: 0.96rem;
   text-decoration: underline;
   cursor: pointer;
 }

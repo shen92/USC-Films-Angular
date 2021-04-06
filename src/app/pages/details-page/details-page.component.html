@@ -90,15 +90,15 @@
       
       <div>
         <div [class]="isDesktop ? 'sectionTitleAltDesktop' : 'sectionTitleAltMobile'">
-          Reviews<span class="mediaTextGrey" style="margin-left: 1.25vw;">{{reviewsCount}}</span>
+          Reviews<span class="mediaTextGrey" [style.marginLeft]="isDesktop ? '1.25vw' : '4vw'">{{reviewsCount}}</span>
         </div>
         <div class="card" *ngFor="let review of reviews" [class]="isDesktop ? 'reviewCardDesktop' : 'reviewCardMobile'">
           <div class="card-body"  style="display: flex; color: black;">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-12 col-md-2">
-                  <div>
-                    <img [src]="review.avatar_path == null ? reviewerPlaceholder : review.avatar_path" style="width: 5vw;">
+                  <div [class]="isDesktop ? 'reviewAvatarDesktop' : 'reviewAvatarMobile'">
+                    <img [src]="review.avatar_path == null ? reviewerPlaceholder : review.avatar_path">
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-10">
@@ -110,7 +110,8 @@
                     </div>
                     <div class="col-sm-12 col-md-auto">
                       <div [class]="isDesktop ? 'ratingDesktop' : 'ratingMobile'">
-                        <span>★</span>{{review.rating}}
+                        <div class="star">★</div>
+                        <div>{{review.rating}}</div>
                       </div>
                     </div>
                   </div>
