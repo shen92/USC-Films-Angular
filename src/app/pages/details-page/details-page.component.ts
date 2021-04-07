@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { DetailsPageService } from 'src/app/services';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { CastModalComponent } from 'src/app/components';
+
 
 @Component({
   selector: 'app-details-page',
@@ -149,9 +151,13 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
     this.alertClass = isInWatchList ? 'success' : 'danger';
   }
 
-  onCardClick(content, id): void {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
-    this.castId = id;
+  onCardClick(id): void {
+    // this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
+    // this.castId = id;
+
+    const modalRef = this.modalService.open(CastModalComponent);
+    console.log(id)
+    modalRef.componentInstance.id = id;
   }
 
   getDuration(): string {

@@ -1,20 +1,4 @@
 <app-nav-bar [activatedRoute]="activatedRoute" [isDesktop]="isDesktop"></app-nav-bar>
-<ng-template #content let-modal>
-    <div class="modal-header text-dark">
-      <h4 class="modal-title" id="modal-basic-title">Name</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body text-dark">
-      <app-cast-modal [id]="castId"></app-cast-modal>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-</ng-template>
-
-  
 <div class="container-fluid" [class]="isDesktop ? 'contentMarginDesktop' : 'contentMarginMobile'">
   <div class="row justify-content-center" style="margin: auto;">
 
@@ -80,7 +64,7 @@
     </div>
     <div class="col-sm-11 col-md-10" style="margin: auto;">
         <div [id]="isDesktop ? 'castsContainerDesktop' : 'castsContainerMobile'" [class]="isDesktop ? 'castsContainerDesktop' : 'castsContainerMobile'" style="margin: auto; width: 74vw; white-space: nowrap; overflow: auto">
-          <div *ngFor="let cast of casts" class="card" [class]="isDesktop ? 'castCardDesktop' : 'castCardMobile'" style="border: none;" (click)="onCardClick(content, cast.id)">
+          <div *ngFor="let cast of casts" class="card" [class]="isDesktop ? 'castCardDesktop' : 'castCardMobile'" style="border: none; cursor: pointer;" (click)="onCardClick(cast.id)">
             <img class="card-img-top" [class]="isDesktop ? 'castCardImageDesktop' : 'castCardImageMobile'" [src]="cast.profile_path" alt="Card image cap" >
             <div class="card-body" [class]="isDesktop ? 'castCardInfoDesktop' : 'castCardInfoMobile'">
               <b class="castCardName">{{cast.name}}</b>
