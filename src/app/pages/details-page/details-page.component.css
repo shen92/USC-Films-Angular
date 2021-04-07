@@ -133,6 +133,66 @@
   font-size: 2.25rem;
 }
 
+.castsContainerDesktop {
+  overflow-y: scroll;
+}
+
+#castsContainerDesktop::-webkit-scrollbar {
+  /* width: 1vh; */
+  height: 1vh;
+}
+
+#castsContainerDesktop::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+
+#castsContainerDesktop::-webkit-scrollbar-thumb {
+  background: #9ca0a6; 
+  border-radius: 10px;
+  width: 27vw;
+}
+
+#castsContainerDesktop::-webkit-scrollbar-thumb:hover {
+  background: #4e535b; 
+}
+
+.castsContainerMobile {
+  border: 1px solid white;
+}
+
+.castCardDesktop {
+  width: 12vw;
+  display: inline-block;
+  border-radius: 2vh;
+  margin-left: 1vw;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.castCardMobile {
+
+}
+
+.castCardImageDesktop {
+  border-radius: 2vh 2vh 0px 0px;
+}
+
+.castCardImageMobile {
+
+}
+
+.castCardInfoDesktop {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.castCardInfoMobile {
+  color: black;
+}
+
 .reviewCardDesktop {
   border-radius: 1vh;
   margin-top: 2vh;
