@@ -1,0 +1,13 @@
+* {
+  color: black;
+}
+
+.modalAvatarDesktop {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.modalAvatarMobile {
+
+}

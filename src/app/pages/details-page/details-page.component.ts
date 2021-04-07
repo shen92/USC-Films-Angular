@@ -50,8 +50,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   public twitterHref: string = "";
   public facebookHref: string = "";
 
-
-  public reviewerPlaceholder: string = "assets/img/reviewer-placeholder.jpg";
+  public reviewerPlaceholder: string = "assets/img/reviewer-placeholder.jpg"; //TODO
 
   public modalOpen: boolean = false;
   public castId: number = -1;
@@ -152,12 +151,11 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   }
 
   onCardClick(id): void {
-    // this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
-    // this.castId = id;
-
-    const modalRef = this.modalService.open(CastModalComponent);
-    console.log(id)
-    modalRef.componentInstance.id = id;
+    const modalRef = this.modalService.open(CastModalComponent, { centered: true, size: 'lg' });
+    const avatar = this.casts.find(cast => cast.id === id);
+    modalRef.componentInstance.id = id; //As prop
+    modalRef.componentInstance.avatar = avatar.profile_path; //As prop
+    modalRef.componentInstance.isDesktop = this.isDesktop;
   }
 
   getDuration(): string {

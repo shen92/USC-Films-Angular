@@ -16,7 +16,7 @@ import {
   CastModalComponent,
   FooterComponent 
 } from './components';
-import { DetailsPageService, HomePageService, SearchService } from './services';
+import { DetailsPageService, HomePageService, SearchService, CastModalService } from './services';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -43,7 +43,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     HomePageService,
     DetailsPageService,
-    SearchService
+    SearchService,
+    CastModalService
   ],
   bootstrap: [AppComponent]
 })

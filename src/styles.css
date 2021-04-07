@@ -14,7 +14,7 @@ app-root {
   flex-direction: column;
 }
 
-.socialMedia:hover {
+.socialMedia{
   cursor: pointer
 }
 
