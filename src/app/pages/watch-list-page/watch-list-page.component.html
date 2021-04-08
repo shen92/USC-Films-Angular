@@ -6,11 +6,11 @@
     </div>
 
     
-    <div *ngIf="!isEmpty" [class]="isDesktop ? 'messageAltDesktop' : 'messageAltMobile'">My WatchList</div>
+    
     
     
     <div *ngIf="!isEmpty && isDesktop" class="col-sm-11 col-md-9">
-      
+      <div class="messageAltDesktop">My WatchList</div>
       <div *ngFor="let group of groups">
         <div class="row justify-content-center" style="margin: auto; " >
           <div class="col-2" *ngFor="let element of group" style="margin: auto;">
@@ -28,6 +28,7 @@
     </div>
 
     <div *ngIf="!isEmpty && !isDesktop" class="col-sm-11 col-md-9">
+      <div class="messageAltMobile">My WatchList</div>
       <div *ngFor="let element of watchList">
         <div class="row justify-content-center" style="margin: auto;">
           <div class="col-12" style="margin: auto;">
