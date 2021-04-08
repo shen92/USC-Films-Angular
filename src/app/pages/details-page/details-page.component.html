@@ -27,7 +27,7 @@
           <div [class]="isDesktop ? 'mediaSpokenLanguagesDesktop' : 'mediaSpokenLanguagesMobile'"  class="mediaTextGrey">
             <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
           <div class="buttonContainer">
-            <button class="btn btn-primary btn-lg" (click)="onAddButtonClick()">{{buttonLabel}}</button>
+            <button class="btn btn-primary btn-lg" (click)="onButtonClick()">{{buttonLabel}}</button>
           </div>
           <div class="alertContainer">
             <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()" [class]="isDesktop ? 'alertDesktop' : ''">{{alertMessage}}</ngb-alert>

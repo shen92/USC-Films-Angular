@@ -41,10 +41,12 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   public videoWidth: number;
   public videoHeight: number;
 
+  private isInWatchList: boolean;
   public buttonLabel: string;
   public alert = false;
   public alertMessage: string;
   public alertClass: string;
+  private details: object;
 
   public youtubeHref: string = "";
   public twitterHref: string = "";
@@ -77,11 +79,12 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       this.recommendationsTitle = `Recommended ${mediaType === 'movie' ? 'Movies' : 'TV Shows'}`
       this.similarsTitle = `Similar ${mediaType === 'movie' ? 'Movies' : 'TV Shows'}`
       const watchList = JSON.parse(window.localStorage.getItem('watchList'));
-        const isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
-        const currentIndex = watchList.findIndex(item => item.id === this.id);
-        this.buttonLabel = isInWatchList ?  'Remove from Watchlist' : 'Add to Watchlist';
+      const currentIndex = watchList.findIndex(item => item.id === this.id);
+      this.isInWatchList = currentIndex !== -1;
+      this.buttonLabel = this.isInWatchList ?  'Remove from Watchlist' : 'Add to Watchlist'; //Initialize button label when page mounts
       this.detailsPageService.fetchMediaDetails(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const details = response.data;
+        this.details = details;
         this.title = details.title;
         this.detailsPageService.fetchMediaVideo(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
           const video = response.data[0];
@@ -97,7 +100,8 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
         this.genres = details.genres;
         this.spokenLanguages = details.spoken_languages;
         this.description = details.overview;
-        if(isInWatchList) {
+        //Initilization: remove from current index and add to head
+        if(this.isInWatchList) {
           watchList.splice(currentIndex, 1);
         } 
         watchList.splice(0, 0, details);
@@ -126,28 +130,25 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
     this.destroy$.unsubscribe();
   }
 
-  onAddButtonClick(): void {
+  onButtonClick(): void {
     this.alert = true;
-    let watchList = JSON.parse(window.localStorage.getItem('watchList'));
-    let isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
-    this.buttonLabel = isInWatchList ?  'Remove from Watchlist' : 'Add to Watchlist';
-    this.alertMessage = isInWatchList ? 'Added to watchlist.' : 'Removed from watchlist.';
-    this.alertClass = isInWatchList ? 'success' : 'danger';
-    if(isInWatchList) {
-        const index = watchList.findIndex(item => item.id === this.id);
-        watchList.splice(index, 1);
-    } else {
-        watchList.splice(0, 0, {mediaType: this.mediaType, id: this.id});
+    const watchList = JSON.parse(window.localStorage.getItem('watchList'));
+    const currentIndex = watchList.findIndex(item => item.id === this.id);
+    if(currentIndex !== -1){
+      watchList.splice(currentIndex, 1);
+    }
+    if(!this.isInWatchList) {
+      watchList.splice(0, 0, this.details);
     }
     window.localStorage.setItem('watchList', JSON.stringify(watchList));
+    this.alertMessage = this.isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
+    this.alertClass = this.isInWatchList ? 'danger' : 'success';
+    this.isInWatchList = !this.isInWatchList;
+    this.buttonLabel = this.isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
   }
 
   onAlertClose(): void {
     this.alert = false;
-    let watchList = JSON.parse(window.localStorage.getItem('watchList'));
-    let isInWatchList = watchList.findIndex(item => item.id === this.id) !== -1;
-    this.alertMessage = isInWatchList ? 'Added to watchlist.' : 'Removed from watchlist.';
-    this.alertClass = isInWatchList ? 'success' : 'danger';
   }
 
   onCardClick(id): void {
