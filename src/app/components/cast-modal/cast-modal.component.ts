@@ -49,12 +49,7 @@ export class CastModalComponent implements OnInit, OnDestroy {
       this.facebookId = externalIds.facebook_id;
       this.instagramId = externalIds.instagram_id;
       this.twitterId = externalIds.twitter_id;
-      console.table({
-        imdbId : externalIds.imdb_id,
-      facebookId : externalIds.facebook_id,
-      instagramId : externalIds.instagram_id,
-      twitterId : externalIds.twitter_id,
-      })
+      
     });
   }
 
@@ -69,6 +64,7 @@ export class CastModalComponent implements OnInit, OnDestroy {
   }
 
   getAlsoKnownAs(): string {
+    if(this.alsoKnownAs == null || this.alsoKnownAs.length === 0) return ""
     return this.alsoKnownAs.join(',')
   }
 

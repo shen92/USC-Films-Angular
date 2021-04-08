@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" *ngIf="biography !== ''">
       <div class="col-sm-12" [class]="isDesktop ? 'modalBiographyContainerDesktop' : 'modalBiographyContainerMobile'">
         <div [class]="isDesktop ? 'modalSubtitleDesktop' : 'modalSubtitleMobile'">Biography</div>
         <div [class]="isDesktop ? 'modalContentDesktop' : 'modalContentMobile'">{{biography}}</div>
