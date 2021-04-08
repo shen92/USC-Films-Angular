@@ -49,6 +49,12 @@ export class CastModalComponent implements OnInit, OnDestroy {
       this.facebookId = externalIds.facebook_id;
       this.instagramId = externalIds.instagram_id;
       this.twitterId = externalIds.twitter_id;
+      console.table({
+        imdbId : externalIds.imdb_id,
+      facebookId : externalIds.facebook_id,
+      instagramId : externalIds.instagram_id,
+      twitterId : externalIds.twitter_id,
+      })
     });
   }
 

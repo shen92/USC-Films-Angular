@@ -1,5 +1,11 @@
 <div class="modal-header">
-  <h4 class="modal-title">{{name}}</h4>
+  <div class="container-fluid">
+    <div class="row" >
+      <div class="col-sm-12">
+        <div class="modal-title" [class]="isDesktop ? 'modalTitleDesktop' : 'modalTitleMobile'">{{name}}</div>
+      </div>
+    </div>
+  </div>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -9,27 +15,27 @@
     <div class="row" >
       <div class="col-sm-12 col-md-3">
         <div class="modalAvatarContainer">
-          <!-- <img [src]="avatar" [alt]="name" [class]="isDesktop ? 'modalAvatarDesktop' : 'modalAvatarModal'"> -->
+          <img [src]="avatar" [alt]="name" [class]="isDesktop ? 'modalAvatarDesktop' : 'modalAvatarModal'">
         </div>
       </div>
-      <div class="col-sm-12 col-md-9" >
+      <div class="col-sm-12 col-md-9" [class]="isDesktop ? 'modalContentDesktop' : 'modalContentMobile'">
         <div>Birth: {{birthday}}</div>
         <div>Birth Place: {{placeOfBirth}}</div>
         <div>Gender: {{getGender()}}</div>
         <div>Known for: {{knownForDepartment | titlecase}}</div>
         <div>Also Known As: {{getAlsoKnownAs()}}</div>
-        <div style="display: flex;">
+        <div [class]="isDesktop ? 'modalLinkContainerDesktop' : 'modalLinkContainerMobile'">
           <div *ngIf="imdbId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit IMDB">
             <a target="_blank" [href]="imdbId">
               <i class="fab fa-imdb" [style.color]="'#e9b700'"></i>
             </a>
           </div>
-          <div *ngIf="facebookId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit Instagram">
+          <div *ngIf="instagramId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit Instagram">
             <a target="_blank" [href]="instagramId">
               <i class="fab fa-instagram" [style.color]="'#803d7b'"></i>
             </a>
           </div>
-          <div *ngIf="instagramId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit Facebook">
+          <div *ngIf="facebookId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit Facebook">
             <a target="_blank" [href]="facebookId">
               <i class="fab fa-facebook-square" [style.color]="'#0e2fff'"></i>
             </a>
@@ -43,9 +49,9 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-sm-12">
-        <div>Biography</div>
-        <div>{{biography}}</div>
+      <div class="col-sm-12" [class]="isDesktop ? 'modalBiographyContainerDesktop' : 'modalBiographyContainerMobile'">
+        <div [class]="isDesktop ? 'modalSubtitleDesktop' : 'modalSubtitleMobile'">Biography</div>
+        <div [class]="isDesktop ? 'modalContentDesktop' : 'modalContentMobile'">{{biography}}</div>
       </div>
     </div>
   </div>
