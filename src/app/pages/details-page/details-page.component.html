@@ -30,7 +30,7 @@
             <button class="btn btn-primary btn-lg" (click)="onButtonClick()">{{buttonLabel}}</button>
           </div>
           <div class="alertContainer">
-            <ngb-alert #selfClosingAlert *ngIf="alert" [type]="alertClass" (closed)="onAlertClose()" [class]="isDesktop ? 'alertDesktop' : ''">{{alertMessage}}</ngb-alert>
+            <ngb-alert #selfClosingAlert *ngIf="successMessage" [type]="alertClass" (closed)="successMessage = ''" [class]="isDesktop ? 'alertDesktop' : ''">{{successMessage}}</ngb-alert>
           </div>
         </div>
       </div>

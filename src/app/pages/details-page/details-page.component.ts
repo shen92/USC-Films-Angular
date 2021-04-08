@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { takeUntil } from 'rxjs/operators';
+import { NgbAlert, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { DetailsPageService } from 'src/app/services';
@@ -43,8 +43,6 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
 
   private isInWatchList: boolean;
   public buttonLabel: string;
-  public alert = false;
-  public alertMessage: string;
   public alertClass: string;
   private details: object;
 
@@ -57,7 +55,12 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   public modalOpen: boolean = false;
   public castId: number = -1;
 
-  destroy$: Subject<boolean> = new Subject<boolean>();
+  
+  private _success = new Subject<string>();
+  public successMessage: string = '';
+  @ViewChild('selfClosingAlert', {static: false}) selfClosingAlert: NgbAlert;
+
+  private destroy$: Subject<boolean> = new Subject<boolean>();
 
   constructor(private breakpointObserver: BreakpointObserver, private detailsPageService: DetailsPageService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) { }
 
@@ -123,6 +126,12 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       });
       
     });
+    this._success.subscribe(message => this.successMessage = message);
+    this._success.pipe(debounceTime(5000)).subscribe(() => {
+      if (this.selfClosingAlert) {
+        this.selfClosingAlert.close();
+      }
+    });
   }
 
   ngOnDestroy(): void {
@@ -131,7 +140,6 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   }
 
   onButtonClick(): void {
-    this.alert = true;
     const watchList = JSON.parse(window.localStorage.getItem('watchList'));
     const currentIndex = watchList.findIndex(item => item.id === this.id);
     if(currentIndex !== -1){
@@ -141,14 +149,10 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       watchList.splice(0, 0, this.details);
     }
     window.localStorage.setItem('watchList', JSON.stringify(watchList));
-    this.alertMessage = this.isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.';
+    this._success.next(this.isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.');
     this.alertClass = this.isInWatchList ? 'danger' : 'success';
     this.isInWatchList = !this.isInWatchList;
     this.buttonLabel = this.isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
-  }
-
-  onAlertClose(): void {
-    this.alert = false;
   }
 
   onCardClick(id): void {
