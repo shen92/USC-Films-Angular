@@ -5,6 +5,7 @@
         *ngIf="currentlyPlayingMovies.length !== 0" 
         id="app-poster-carousel" 
         [showNavigationIndicators]="isDesktop"
+        [class]="isDesktop ? 'carouselDesktop' : 'carouselMobile'"
       >
         <ng-template ngbSlide *ngFor="let movie of currentlyPlayingMovies">
           <div class="imageContainer" (click)="onImageClick(movie.id)">

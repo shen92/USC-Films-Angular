@@ -81,10 +81,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
       this.mediaType = mediaType;
       this.recommendationsTitle = `Recommended ${mediaType === 'movie' ? 'Movies' : 'TV Shows'}`
       this.similarsTitle = `Similar ${mediaType === 'movie' ? 'Movies' : 'TV Shows'}`
-      const watchList = JSON.parse(window.localStorage.getItem('watchList'));
-      const currentIndex = watchList.findIndex(item => item.id === this.id);
-      this.isInWatchList = currentIndex !== -1;
-      this.buttonLabel = this.isInWatchList ?  'Remove from Watchlist' : 'Add to Watchlist'; //Initialize button label when page mounts
+      
       this.detailsPageService.fetchMediaDetails(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
         const details = response.data;
         this.details = details;
@@ -104,11 +101,18 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
         this.spokenLanguages = details.spoken_languages;
         this.description = details.overview;
         //Initilization: remove from current index and add to head
-        if(this.isInWatchList) {
-          watchList.splice(currentIndex, 1);
+        //Add to history
+        const history = JSON.parse(window.localStorage.getItem('history'));
+        const hisotoryIndex = history.findIndex(item => item.id === this.id);
+        if(hisotoryIndex !== -1) {
+          history.splice(hisotoryIndex, 1);
         } 
-        watchList.splice(0, 0, details);
-        window.localStorage.setItem('watchList', JSON.stringify(watchList));
+        history.splice(0, 0, details);
+        window.localStorage.setItem('history', JSON.stringify(history));
+        const watchList = JSON.parse(window.localStorage.getItem('watchList'));
+        const watchListIndex = watchList.findIndex(item => item.id === this.id);
+        this.isInWatchList = watchListIndex !== -1;
+        this.buttonLabel = this.isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
       });
       
       this.detailsPageService.fetchMediaCasts(this.id, this.mediaType).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
@@ -142,10 +146,10 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   onButtonClick(): void {
     const watchList = JSON.parse(window.localStorage.getItem('watchList'));
     const currentIndex = watchList.findIndex(item => item.id === this.id);
-    if(currentIndex !== -1){
+    if(currentIndex !== -1){ //If in watchlist, remove
       watchList.splice(currentIndex, 1);
     }
-    if(!this.isInWatchList) {
+    if(!this.isInWatchList) { //Add new reference to head
       watchList.splice(0, 0, this.details);
     }
     window.localStorage.setItem('watchList', JSON.stringify(watchList));

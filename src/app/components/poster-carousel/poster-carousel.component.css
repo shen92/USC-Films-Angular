@@ -42,3 +42,19 @@ img {
   display: flex;
 }
 
+:host ::ng-deep .carouselDesktop .carousel-control-prev {
+  left: -3.5vw;
+}
+
+:host ::ng-deep .carouselDesktop .carousel-control-next {
+  right: -3.5vw;
+}
+
+:host ::ng-deep .carouselMobile .carousel-control-prev {
+  left: -3vw;
+}
+
+:host ::ng-deep .carouselMobile .carousel-control-next {
+  right: -3vw;
+}
+

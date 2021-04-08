@@ -13,11 +13,13 @@ export class SwimmingPoolComponent implements OnChanges {
 
   public groups: any[] = [];
   public elements: number = 6;
+  public showControllers: boolean;
 
   constructor(private router: Router) { }
 
   ngOnChanges(): void {
     this.groupElements();
+    this.showControllers = this.isDesktop && this.groups.length > 1 || !this.isDesktop && this.data.length > 1;
   }
 
   groupElements(): void {

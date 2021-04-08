@@ -116,3 +116,11 @@ img {
 :host ::ng-deep .carousel-indicators {
   bottom: -3vw;
 }
+
+:host ::ng-deep .hideControllers .carousel-control-prev {
+  display: none;
+}
+
+:host ::ng-deep .hideControllers .carousel-control-next {
+  display: none;
+}

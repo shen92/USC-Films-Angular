@@ -8,7 +8,7 @@
     </div>
 
     <div class="col-12" >
-      <ngb-carousel *ngIf="isDesktop" id="swimming-pool-carousel" [interval]="0" [showNavigationIndicators]="isDesktop && groups.length > 1">
+      <ngb-carousel *ngIf="isDesktop" id="swimming-pool-carousel" [interval]="0" [showNavigationIndicators]="isDesktop && groups.length > 1" [class]="!showControllers ? 'hideControllers' : ''">
         <ng-template ngbSlide *ngFor="let group of groups">
           <div class="row justify-content-center" style="margin: auto;" >
             <div class="col-2" *ngFor="let element of group" style="margin: auto;">
@@ -25,7 +25,7 @@
         </ng-template>
       </ngb-carousel>
   
-      <ngb-carousel *ngIf="!isDesktop" id="swimming-pool-carousel" [interval]="0" [showNavigationIndicators]="isDesktop">
+      <ngb-carousel *ngIf="!isDesktop" id="swimming-pool-carousel" [interval]="0" [showNavigationIndicators]="isDesktop" [class]="!showControllers ? 'hideControllers' : ''">
         <ng-template ngbSlide *ngFor="let element of data">
           <div class="row justify-content-center" style="margin: auto;">
             <div class="col-12" style="margin: auto;">

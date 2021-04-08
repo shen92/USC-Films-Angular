@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit, OnDestroy {
   public isDesktop: boolean;
   public activatedRoute: string = "home";
 
-  public watchList: any[] = [];
+  public history: any[] = [];
   public currentlyPlayingMovies: any[] = [];
   public popularMovies: any[] = [];
   public topRatedMovies: any[] = [];
@@ -69,8 +69,8 @@ export class HomePageComponent implements OnInit, OnDestroy {
       })
       this.trendingTvShows = result;
     });
-    const watchList = JSON.parse(window.localStorage.getItem('watchList'));
-    this.watchList = watchList;
+    const history = JSON.parse(window.localStorage.getItem('history'));
+    this.history = history;
   }
 
   ngOnDestroy(): void {
