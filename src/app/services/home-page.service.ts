@@ -24,37 +24,37 @@ export class HomePageService {
   }
 
   fetchCurrentPlayingMovies() {
-    return this.http.get(`${BASE_URL}/movies/currently-playing`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/movies/currently-playing`).pipe(retry(3), catchError(this.handleError));
   }
  
   fetchPopularMovies() {
-    return this.http.get(`${BASE_URL}/movies/popular`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/movies/popular`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchTopRatedMovies() {
-    return this.http.get(`${BASE_URL}/movies/top-rated`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/movies/top-rated`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchTrendingMovies() {
-    return this.http.get(`${BASE_URL}/movies/trending`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/movies/trending`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchPopularTVShows() {
-    return this.http.get(`${BASE_URL}/tvs/popular`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/tvs/popular`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchTopRatedTVShows() {
-    return this.http.get(`${BASE_URL}/tvs/top-rated`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/tvs/top-rated`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchTrendingTVShows() {
-    return this.http.get(`${BASE_URL}/tvs/trending`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/tvs/trending`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchWatchListItems() {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     let params = new URLSearchParams();
-    return this.http.get(`${BASE_URL}/tvs/trending`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/tvs/trending`).pipe(retry(3), catchError(this.handleError));
   }
  }

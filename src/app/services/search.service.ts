@@ -24,7 +24,7 @@ export class SearchService {
   }
 
   fetchSearchresults(name) {
-    return this.http.get(`${BASE_URL}/search/${name}`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/search/${name}`).pipe(retry(3), catchError(this.handleError));
   }
   
 }

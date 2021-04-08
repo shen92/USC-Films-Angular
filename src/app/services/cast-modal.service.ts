@@ -24,10 +24,10 @@ export class CastModalService {
   }
 
   fetchCastDetails(id) {
-    return this.http.get(`${BASE_URL}/cast/${id}/details`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/cast/${id}/details`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchCastExternalIds(id) {
-    return this.http.get(`${BASE_URL}/cast/${id}/external-ids`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/cast/${id}/external-ids`).pipe(retry(3), catchError(this.handleError));
   }
 }

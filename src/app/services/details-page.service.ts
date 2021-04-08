@@ -24,26 +24,26 @@ export class DetailsPageService {
   }
 
   fetchRecommendedMedia(id, mediaType) {
-    return this.http.get(`${BASE_URL}/${mediaType}/${id}/recommended`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/${mediaType}/${id}/recommended`).pipe(retry(3), catchError(this.handleError));
   }
   
   fetchSimilarMedia(id, mediaType) {
-    return this.http.get(`${BASE_URL}/${mediaType}/${id}/similar`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/${mediaType}/${id}/similar`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchMediaVideo(id, mediaType) {
-    return this.http.get(`${BASE_URL}/${mediaType}/${id}/video`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/${mediaType}/${id}/video`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchMediaDetails(id, mediaType) {
-    return this.http.get(`${BASE_URL}/${mediaType}/${id}/details`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/${mediaType}/${id}/details`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchMediaReviews(id, mediaType) {
-    return this.http.get(`${BASE_URL}/${mediaType}/${id}/reviews`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/${mediaType}/${id}/reviews`).pipe(retry(3), catchError(this.handleError));
   }
 
   fetchMediaCasts(id, mediaType) {
-    return this.http.get(`${BASE_URL}/${mediaType}/${id}/casts`).pipe(retry(3), catchError(this.handleError));
+    return this.http.get(`${BASE_URL}/api/v1/${mediaType}/${id}/casts`).pipe(retry(3), catchError(this.handleError));
   }
 }
