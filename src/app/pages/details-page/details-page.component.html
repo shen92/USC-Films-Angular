@@ -17,8 +17,11 @@
             {{tagline}}
           </div>
           <div [class]="isDesktop ? 'mediaMetaDesktop' : 'mediaMetaMobile' "class="mediaMeta mediaTextGrey">
-            <div *ngIf="year !== ''" style="margin-right: 8px;">{{getYear()}}</div>
-            <div style="margin-right: 8px;">{{getRate()}}</div>
+            <div *ngIf="year !== ''" style="margin-right: 8px;">
+              {{getYear()}}
+            </div>
+            <div style="margin-right: 8px;">
+              <span>★</span> {{getRate()}}</div>
             <div>{{getDuration()}}</div>
           </div>
           <div [class]="isDesktop ? 'mediaGenresDesktop' : 'mediaGenresMobile'" class="mediaTextGrey">
@@ -27,7 +30,7 @@
           <div [class]="isDesktop ? 'mediaSpokenLanguagesDesktop' : 'mediaSpokenLanguagesMobile'"  class="mediaTextGrey">
             <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
           <div class="buttonContainer">
-            <button class="btn btn-primary btn-lg" (click)="onButtonClick()">{{buttonLabel}}</button>
+            <button class="btn btn-primary" [class]="isDesktop ? 'btn-lg': 'btn-sm'" [style.fontSize]="isDesktop ? '0.5rem' : ''" (click)="onButtonClick()">{{buttonLabel}}</button>
           </div>
           <div class="alertContainer">
             <ngb-alert #selfClosingAlert *ngIf="successMessage" [type]="alertClass" (closed)="successMessage = ''" [class]="isDesktop ? 'alertDesktop' : ''">{{successMessage}}</ngb-alert>
@@ -99,7 +102,7 @@
                     </div>
                     <div class="col-sm-12 col-md-auto">
                       <div [class]="isDesktop ? 'ratingDesktop' : 'ratingMobile'">
-                        <div class="star">★</div>
+                        <div>★</div>
                         <div>{{review.rating}}</div>
                       </div>
                     </div>

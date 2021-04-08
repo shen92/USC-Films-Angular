@@ -100,7 +100,6 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
         this.genres = details.genres;
         this.spokenLanguages = details.spoken_languages;
         this.description = details.overview;
-        //Initilization: remove from current index and add to head
         //Add to history
         const history = JSON.parse(window.localStorage.getItem('history'));
         const hisotoryIndex = history.findIndex(item => item.id === this.id);
@@ -108,6 +107,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
           history.splice(hisotoryIndex, 1);
         } 
         history.splice(0, 0, details);
+        history.slice(0, 24);
         window.localStorage.setItem('history', JSON.stringify(history));
         const watchList = JSON.parse(window.localStorage.getItem('watchList'));
         const watchListIndex = watchList.findIndex(item => item.id === this.id);
@@ -152,6 +152,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
     if(!this.isInWatchList) { //Add new reference to head
       watchList.splice(0, 0, this.details);
     }
+    watchList.slice(0, 24);
     window.localStorage.setItem('watchList', JSON.stringify(watchList));
     this._success.next(this.isInWatchList ? 'Removed from watchlist.' : 'Added to watchlist.');
     this.alertClass = this.isInWatchList ? 'danger' : 'success';
@@ -181,7 +182,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   }
 
   getRate(): string {
-    return this.vote_average === "" ? "" : `★ ${this.vote_average} |`
+    return this.vote_average === "" ? "" : `${this.vote_average} |`
   }
 
   getGenres(): string {

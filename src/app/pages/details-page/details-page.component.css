@@ -11,7 +11,7 @@
 }
 
 .contentMarginMobile {
-  margin-top: 4vh;
+  margin-top: 3vh;
 }
 
 .mediaTitleDesktop {
@@ -23,7 +23,7 @@
 .mediaTitleMobile {
   margin-top: 0.5vh;
   line-height: 1.15;
-  font-size: 3rem;
+  font-size: 2.75rem;
   margin-top: 2vh;
 }
 
@@ -46,7 +46,7 @@
 .mediaMetaMobile {
   display: flex;
   margin: 2.5vh 0 1.5vh;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .mediaLabelDesktop {
@@ -65,7 +65,7 @@
 
 .mediaGenresMobile {
   margin: 0.5vh 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   overflow-wrap: break-word;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .mediaSpokenLanguagesMobile {
-  font-size: 1rem;
+  font-size: 0.9rem;
   overflow-wrap: break-word;
 }
 
@@ -252,14 +252,11 @@
   color: white;
   padding: 0.2vh 0.5vw;
   border-radius: 2vh;
-}
-
-.ratingDesktop .star {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .ratingMobile {
-  width: 12vw;
+  width: 13vw;
   display: flex;
   align-items: top;
   justify-content: center;
@@ -269,11 +266,6 @@
   padding: 0.5vh 0.75vw;
   border-radius: 3vh;
   margin-top: 2vh;
-}
-
-.ratingMobile .star {
-  line-height: 1rem;
-  font-size: 2rem;
 }
 
 .reviewTimeDesktop{

@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" [style.marginTop]="isDesktop ? '3vh' : '4vh'">
   <div class="row justify-content-center">
     <div class="col-12" style="margin: auto;">
       <ngb-carousel 
@@ -11,7 +11,7 @@
           <div class="imageContainer" (click)="onImageClick(movie.id)">
             <img [src]="movie.poster_path" [alt]="movie.title" [ngStyle]="{height: isDesktop ? '54vh' : '25vh'}">
           </div>
-          <div class="carousel-caption captionContainer" [ngStyle]="{bottom: isDesktop ? '5%' : '-4%', left: isDesktop ? '5%' : '5%', fontSize: isDesktop ? 20 : 14}">{{movie.title}}</div>
+          <div class="carousel-caption captionContainer" [ngStyle]="{bottom: isDesktop ? '5%' : '-4%', left: isDesktop ? '5%' : '5%', fontSize: isDesktop ? 20 : 14 }">{{movie.title}}</div>
         </ng-template>
       </ngb-carousel>
     </div>

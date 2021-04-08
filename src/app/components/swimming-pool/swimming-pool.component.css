@@ -4,7 +4,8 @@
 }
 
 .swimmingPoolMobile {
-  height: 75vh;
+  margin-top: 3vh;
+  height: 70vh;
 }
 
 .swimmingPoolTitleDesktop {
@@ -12,7 +13,7 @@
 }
 
 .swimmingPoolTitleMobile {
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 #swimming-pool-carousel, #swimming-pool-carousel:active {
@@ -106,12 +107,20 @@ img {
   z-index: -100;
 }
 
-:host ::ng-deep .carousel-control-prev {
+:host ::ng-deep .swimmingPoolDesktop .carousel-control-prev {
   left: -7vw;
 }
 
-:host ::ng-deep .carousel-control-next {
+:host ::ng-deep .swimmingPoolDesktop .carousel-control-next {
   right: -7vw;
+}
+
+:host ::ng-deep .swimmingPoolMobile .carousel-control-prev {
+  left: -11vw;
+}
+
+:host ::ng-deep .swimmingPoolMobile .carousel-control-next {
+  right: -11vw;
 }
 
 :host ::ng-deep .carousel-indicators {
