@@ -19,11 +19,12 @@
         </div>
       </div>
       <div class="col-sm-12 col-md-9" [class]="isDesktop ? 'modalContentDesktop' : 'modalContentMobile'">
-        <div>Birth: {{birthday}}</div>
-        <div>Birth Place: {{placeOfBirth}}</div>
-        <div>Gender: {{getGender()}}</div>
-        <div>Known for: {{knownForDepartment | titlecase}}</div>
-        <div>Also Known As: {{getAlsoKnownAs()}}</div>
+        <div *ngIf="birthday !== ''">Birth: {{birthday}}</div>
+        <div *ngIf="placeOfBirth !== ''">Birth Place: {{placeOfBirth}}</div>
+        <div >Gender: {{getGender()}}</div>
+        <div *ngIf="website !== ''">Website: <span><a target="_blank" [href]="website" style="text-decoration: underline;">{{website}}</a></span></div>
+        <div *ngIf="knownForDepartment !== ''">Known for: {{knownForDepartment | titlecase}}</div>
+        <div *ngIf="alsoKnownAs.length !== 0">Also Known As: {{getAlsoKnownAs()}}</div>
         <div [class]="isDesktop ? 'modalLinkContainerDesktop' : 'modalLinkContainerMobile'">
           <div *ngIf="imdbId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" [placement]="isDesktop ? 'top' : 'right'" ngbPopover="Visit IMDB" triggers="mouseenter:mouseleave">
             <a target="_blank" [href]="imdbId">

@@ -19,6 +19,7 @@ export class CastModalComponent implements OnInit, OnDestroy {
   public birthday: string;
   public placeOfBirth: string;
   public gender: number;
+  public website: string;
   public knownForDepartment: string;
   public alsoKnownAs: any[];
   public biography: string;
@@ -39,6 +40,7 @@ export class CastModalComponent implements OnInit, OnDestroy {
       this.birthday = details.birthday;
       this.placeOfBirth = details.place_of_birth;
       this.gender = details.gender;
+      this.website = details.website;
       this.knownForDepartment = details.known_for_department;
       this.alsoKnownAs = details.also_known_as;
       this.biography = details.biography;
