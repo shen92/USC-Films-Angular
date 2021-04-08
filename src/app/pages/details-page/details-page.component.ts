@@ -183,7 +183,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   }
 
   getYear(): string {
-    return `${this.year.substr(0, 4)} |`
+    return this.year == null || this.year.length === 0? "" : `${this.year.substr(0, 4)} |`
   }
 
   getRate(): string {
@@ -191,10 +191,12 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   }
 
   getGenres(): string {
+    if(this.genres == null || this.genres.length === 0) return "";
     return this.genres.map(genre => genre.name).join(', ')
   }
   
   getSpokenLanguages(): string{
+    if(this.spokenLanguages == null || this.spokenLanguages.length === 0) return "";
     return this.spokenLanguages.map(language => language.name).join(', ')
   }
 
