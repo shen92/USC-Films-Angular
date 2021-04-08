@@ -63,11 +63,11 @@
         <div [class]="isDesktop ? 'sectionTitleAltDesktop' : 'sectionTitleAltMobile'">Full Cast and Crew</div>
     </div>
     <div *ngIf="casts.length !== 0" class="col-sm-11 col-md-10" style="margin: auto;">
-        <div [id]="isDesktop ? 'castsContainerDesktop' : 'castsContainerMobile'" [class]="isDesktop ? 'castsContainerDesktop' : 'castsContainerMobile'" style="margin: auto; width: 74vw; white-space: nowrap; overflow: auto">
+        <div [id]="isDesktop ? 'castsContainerDesktop' : 'castsContainerMobile'" [class]="isDesktop ? 'castsContainerDesktop' : 'castsContainerMobile'" style=" white-space: nowrap; overflow: auto">
           <div *ngFor="let cast of casts" class="card" [class]="isDesktop ? 'castCardDesktop' : 'castCardMobile'" style="border: none; cursor: pointer;" (click)="onCardClick(cast.id)">
             <img class="card-img-top" [class]="isDesktop ? 'castCardImageDesktop' : 'castCardImageMobile'" [src]="cast.profile_path" alt="Card image cap" >
             <div class="card-body" [class]="isDesktop ? 'castCardInfoDesktop' : 'castCardInfoMobile'">
-              <b class="castCardName">{{cast.name}}</b>
+              <b>{{cast.name}}</b>
               <b>AS</b>
               <div>{{cast.character}}</div>
             </div>

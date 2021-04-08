@@ -15,7 +15,7 @@
     <div class="row" >
       <div class="col-sm-12 col-md-3">
         <div class="modalAvatarContainer">
-          <img [src]="avatar" [alt]="name" [class]="isDesktop ? 'modalAvatarDesktop' : 'modalAvatarModal'">
+          <img [src]="avatar" [alt]="name" [class]="isDesktop ? 'modalAvatarDesktop' : 'modalAvatarMobile'">
         </div>
       </div>
       <div class="col-sm-12 col-md-9" [class]="isDesktop ? 'modalContentDesktop' : 'modalContentMobile'">
@@ -25,22 +25,22 @@
         <div>Known for: {{knownForDepartment | titlecase}}</div>
         <div>Also Known As: {{getAlsoKnownAs()}}</div>
         <div [class]="isDesktop ? 'modalLinkContainerDesktop' : 'modalLinkContainerMobile'">
-          <div *ngIf="imdbId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit IMDB">
+          <div *ngIf="imdbId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" [placement]="isDesktop ? 'top' : 'right'" ngbPopover="Visit IMDB" triggers="mouseenter:mouseleave">
             <a target="_blank" [href]="imdbId">
               <i class="fab fa-imdb" [style.color]="'#e9b700'"></i>
             </a>
           </div>
-          <div *ngIf="instagramId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit Instagram">
+          <div *ngIf="instagramId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbPopover="Visit Instagram" triggers="mouseenter:mouseleave">
             <a target="_blank" [href]="instagramId">
               <i class="fab fa-instagram" [style.color]="'#803d7b'"></i>
             </a>
           </div>
-          <div *ngIf="facebookId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit Facebook">
+          <div *ngIf="facebookId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbPopover="Visit Facebook" triggers="mouseenter:mouseleave">
             <a target="_blank" [href]="facebookId">
               <i class="fab fa-facebook-square" [style.color]="'#0e2fff'"></i>
             </a>
           </div>
-          <div *ngIf="twitterId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbTooltip="Visit Twitter">
+          <div *ngIf="twitterId" class="socialMedia" [class]="isDesktop ? 'socialIconDesktop' : 'socialIconMobile'" placement="top" ngbPopover="Visit Twitter" triggers="mouseenter:mouseleave">
             <a target="_blank" [href]="twitterId">
               <i class="fab fa-twitter" [style.color]="'#4399ff'"></i>
             </a>

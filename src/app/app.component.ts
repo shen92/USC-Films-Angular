@@ -8,6 +8,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 export class AppComponent implements OnInit { 
   
+  //Run commented code to flush cache.
   ngOnInit():void {
     //window.localStorage.setItem('watchList', JSON.stringify([]));
   }

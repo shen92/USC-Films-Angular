@@ -151,7 +151,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   }
 
   onCardClick(id): void {
-    const modalRef = this.modalService.open(CastModalComponent, { centered: true, size: 'xl' });
+    const modalRef = this.modalService.open(CastModalComponent, { centered: true, size: 'xl', scrollable: true });
     const avatar = this.casts.find(cast => cast.id === id);
     modalRef.componentInstance.id = id; //As prop
     modalRef.componentInstance.avatar = avatar.profile_path; //As prop

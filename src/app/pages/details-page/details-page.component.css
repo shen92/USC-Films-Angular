@@ -130,10 +130,13 @@
 }
 
 .sectionTitleAltMobile {
-  font-size: 2.25rem;
+  margin-top: 4vh;
+  font-size: 2rem;
 }
 
 .castsContainerDesktop {
+  margin: auto; 
+  width: 74vw;
   overflow-y: scroll;
 }
 
@@ -158,7 +161,8 @@
 }
 
 .castsContainerMobile {
-  border: 1px solid white;
+  width: 100vw;
+  overflow-y: scroll;
 }
 
 .castCardDesktop {
@@ -171,7 +175,12 @@
 }
 
 .castCardMobile {
-
+  width: 50vw;
+  display: inline-block;
+  border-radius: 2vh;
+  margin-right: 6vw;
+  margin-top: 1vw;
+  margin-bottom: 1vw;
 }
 
 .castCardImageDesktop {
@@ -179,7 +188,7 @@
 }
 
 .castCardImageMobile {
-
+  border-radius: 2vh 2vh 0px 0px;
 }
 
 .castCardInfoDesktop {
@@ -191,6 +200,9 @@
 
 .castCardInfoMobile {
   color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .reviewCardDesktop {

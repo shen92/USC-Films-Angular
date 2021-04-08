@@ -7,7 +7,7 @@
 }
 
 .modalTitleMobile {
-
+  font-size: 1.25rem;
 }
 
 .modalContentDesktop {
@@ -15,7 +15,7 @@
 } 
 
 .modalContentMobile {
-
+  font-size: 0.9rem;
 }
 
 .modalLinkContainerDesktop {
@@ -30,10 +30,12 @@
 
 .modalLinkContainerMobile {
   display: flex;
+  gap: 0.5vw;
+  margin-top: 2vh;
 }
 
 .modalLinkContainerMobile i {
-
+  font-size: 2rem;
 }
 
 .modalAvatarDesktop {
@@ -43,7 +45,9 @@
 }
 
 .modalAvatarMobile {
-
+  width: 80vw;
+  height: auto;
+  object-fit: contain;
 }
 
 .modalSubtitleDesktop {
@@ -51,7 +55,7 @@
 }
 
 .modalSubtitleMobile {
-
+  font-size: 1.25rem;
 }
 
 .modalBiographyContainerDesktop {
@@ -59,5 +63,6 @@
 }
 
 .modalBiographyContainerMobile {
-
+  margin-top: 1.5vh;
 }
+
