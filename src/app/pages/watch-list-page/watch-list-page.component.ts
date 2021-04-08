@@ -44,7 +44,6 @@ export class WatchListPageComponent implements OnInit {
       }
     }
     this.groups = result;
-    console.log(this.groups)
   }
 
   onClick(id: number, mediaType: string): void {

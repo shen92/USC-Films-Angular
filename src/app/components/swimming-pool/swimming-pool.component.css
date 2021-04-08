@@ -1,4 +1,5 @@
 .swimmingPoolDesktop {
+  margin-top: 4vh;
   height: 42vh;
 }
 
@@ -7,11 +8,11 @@
 }
 
 .swimmingPoolTitleDesktop {
-  font-size: 32px;
+  font-size: 2.5rem;
 }
 
 .swimmingPoolTitleMobile {
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 #swimming-pool-carousel, #swimming-pool-carousel:active {

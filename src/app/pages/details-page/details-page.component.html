@@ -17,7 +17,7 @@
             {{tagline}}
           </div>
           <div [class]="isDesktop ? 'mediaMetaDesktop' : 'mediaMetaMobile' "class="mediaMeta mediaTextGrey">
-            <div style="margin-right: 8px;">{{getYear()}}</div>
+            <div *ngIf="year !== ''" style="margin-right: 8px;">{{getYear()}}</div>
             <div style="margin-right: 8px;">{{getRate()}}</div>
             <div>{{getDuration()}}</div>
           </div>
