@@ -30,7 +30,7 @@
           <div [class]="isDesktop ? 'mediaSpokenLanguagesDesktop' : 'mediaSpokenLanguagesMobile'"  class="mediaTextGrey">
             <span [class]="isDesktop ? 'mediaLabelDesktop' : 'mediaLabelMobile'" class="mediaTextWhite">Spoken Languages :</span> {{getSpokenLanguages()}}</div>
           <div class="buttonContainer">
-            <button class="btn btn-primary" [class]="isDesktop ? 'btn-lg': 'btn-sm'" [style.fontSize]="isDesktop ? '0.5rem' : ''" (click)="onButtonClick()">{{buttonLabel}}</button>
+            <button class="btn btn-primary" [class]="isDesktop ? 'btn-lg': 'btn-sm'" [style.fontSize]="!isDesktop ? '0.9rem' : ''" (click)="onButtonClick()">{{buttonLabel}}</button>
           </div>
           <div class="alertContainer">
             <ngb-alert #selfClosingAlert *ngIf="successMessage" [type]="alertClass" (closed)="successMessage = ''" [class]="isDesktop ? 'alertDesktop' : ''">{{successMessage}}</ngb-alert>
@@ -70,9 +70,9 @@
           <div *ngFor="let cast of casts" class="card" [class]="isDesktop ? 'castCardDesktop' : 'castCardMobile'" style="border: none; cursor: pointer;" (click)="onCardClick(cast.id)">
             <img class="card-img-top" [class]="isDesktop ? 'castCardImageDesktop' : 'castCardImageMobile'" [src]="cast.profile_path" alt="Card image cap" >
             <div class="card-body" [class]="isDesktop ? 'castCardInfoDesktop' : 'castCardInfoMobile'">
-              <b>{{cast.name}}</b>
+              <b style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center;">{{cast.name}}</b>
               <b>AS</b>
-              <div>{{cast.character}}</div>
+              <div style="width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center;">{{cast.character}}</div>
             </div>
           </div>
         </div>
