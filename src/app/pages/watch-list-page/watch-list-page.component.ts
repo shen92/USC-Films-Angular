@@ -24,7 +24,11 @@ export class WatchListPageComponent implements OnInit {
     ]).subscribe(result => {
       this.isDesktop = result.matches;
     });
-    const watchList = JSON.parse(window.localStorage.getItem('watchList'));
+    let watchList = JSON.parse(window.localStorage.getItem('watchList'));
+    if(watchList == null) {
+      window.localStorage.setItem('watchList', JSON.stringify([]));
+      watchList = []
+    }
     this.watchList = watchList;
     this.isEmpty = this.watchList.length === 0;
     this.groupElements();
