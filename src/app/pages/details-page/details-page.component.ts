@@ -110,8 +110,13 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
         history.slice(0, 24);
         window.localStorage.setItem('history', JSON.stringify(history));
         const watchList = JSON.parse(window.localStorage.getItem('watchList'));
-        const watchListIndex = watchList.findIndex(item => item.id === this.id);
-        this.isInWatchList = watchListIndex !== -1;
+        if(watchList == null){
+          this.isInWatchList = false;
+          window.localStorage.setItem('watchList', JSON.stringify([]));
+        } else {
+          const watchListIndex = watchList.findIndex(item => item.id === this.id);
+          this.isInWatchList = watchListIndex !== -1;
+        }
         this.buttonLabel = this.isInWatchList ? 'Remove from Watchlist' : 'Add to Watchlist';
       });
       

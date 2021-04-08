@@ -8,10 +8,10 @@
   <div [ngbCollapse]="navbarCollapse" class="collapse navbar-collapse">
     <ul class="navbar-nav" style="width: 100%; display: flex">
       <li class="nav-item" [ngStyle]="{display: 'flex', flexDirection: isDesktop ? 'row' : 'row-reverse'}">
-        <a class="nav-link" [style.color]="activatedRoute === 'home' ? 'white' : '#495057'"  [routerLink]="'/'" (click)="navbarCollapse = true">Home</a>
+        <a class="nav-link" [style.color]="activatedRoute === 'home' ? 'white' : '#495057'"  routerLink="/" (click)="navbarCollapse = true">Home</a>
       </li>
       <li class="nav-item" [ngStyle]="{display: 'flex', flexDirection: isDesktop ? 'row' : 'row-reverse'}">
-        <a class="nav-link" [style.color]="activatedRoute === 'mylist' ? 'white' : '#495057'"  [routerLink]="'/mylist'" (click)="navbarCollapse = true">My List</a>
+        <a class="nav-link" [style.color]="activatedRoute === 'mylist' ? 'white' : '#495057'"  routerLink="/mylist" (click)="navbarCollapse = true">My List</a>
       </li>
       <li style="display: flex; flex-grow: 1;"></li>
       <li class="typeAheadContainer">
