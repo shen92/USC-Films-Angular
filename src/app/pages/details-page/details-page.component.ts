@@ -50,7 +50,7 @@ export class DetailsPageComponent implements OnInit, OnDestroy {
   public twitterHref: string = "";
   public facebookHref: string = "";
 
-  public reviewerPlaceholder: string = "assets/img/reviewer-placeholder.jpg"; //TODO
+  public reviewerPlaceholder: string = "assets/img/reviewer-placeholder.jpg";
 
   public modalOpen: boolean = false;
   public castId: number = -1;

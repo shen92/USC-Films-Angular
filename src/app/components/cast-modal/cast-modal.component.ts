@@ -15,6 +15,7 @@ export class CastModalComponent implements OnInit, OnDestroy {
   @Input() avatar: string;
   @Input() isDesktop: boolean;
   
+  public profilePath: string;
   public name: string;
   public birthday: string;
   public placeOfBirth: string;
@@ -36,6 +37,7 @@ export class CastModalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.castModalService.fetchCastDetails(this.id).pipe(takeUntil(this.destroy$)).subscribe((response: any) => {
       const details = response.data;
+      this.profilePath = details.profile_path === "" ? this.avatar : details.profile_path;
       this.name = details.name;
       this.birthday = details.birthday;
       this.placeOfBirth = details.place_of_birth;
