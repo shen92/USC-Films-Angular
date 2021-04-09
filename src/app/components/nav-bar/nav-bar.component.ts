@@ -44,6 +44,7 @@ export class NavBarComponent {
     )
 
     onResultClick(id, mediaType): void {
+      this.navbarCollapse = true;
       this.router.navigate( ['watch', mediaType, id]);
     }
     
