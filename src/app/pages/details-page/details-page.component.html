@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <div [class]="isDesktop ? 'sectionDesktop' : ''" style="margin: auto;">
+      <div *ngIf="description.length !== 0" [class]="isDesktop ? 'sectionDesktop' : ''" style="margin: auto;">
         <div [class]="isDesktop ? 'subtitleDesktop' : 'subtitleMobile'">
           Description
         </div>
